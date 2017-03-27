@@ -43,7 +43,7 @@ namespace SF.Module.Blog
         private void AddCoreServices(IServiceCollection services)
         {
             services.AddDbContext<BlogContext>((serviceProvider, options) =>
-             options.UseSqlServer("Server=.;Database=SF_Team_Blog;uid=sa;pwd=123.com.cn;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;",
+             options.UseSqlServer("Server=.;Database=SF_Team_Blog;uid=sa;pwd=123456;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;",
                   b => b.MigrationsAssembly("SF.Module.Blog"))
                     .UseInternalServiceProvider(serviceProvider));
             services.AddTransient<IBlogUnitOfWork, BlogUnitOfWork>();

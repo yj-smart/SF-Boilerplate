@@ -56,7 +56,7 @@ namespace SF.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Server=192.168.1.101;Database=SF_Team_2017;uid=sa;pwd=123.com.cn;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;",
+            //optionsBuilder.UseSqlServer("Server=192.168.1.101;Database=SF_Team_2017_Dev;uid=sa;pwd=123456;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;",
             //   b => b.MigrationsAssembly("SF.WebHost"));
             base.OnConfiguring(optionsBuilder);
         }

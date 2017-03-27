@@ -31,7 +31,7 @@ namespace SF.WebHost
     //    {
 
     //        var builder = new DbContextOptionsBuilder<CoreDbContext>();
-    //        builder.UseSqlServer("Server=.;Database=SF_Team_2017_Dev;uid=sa;pwd=123.com.cn;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;"
+    //        builder.UseSqlServer("Server=.;Database=SF_Team_2017_Dev;uid=sa;pwd=123456;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;"
     //             , b => b.MigrationsAssembly("SF.WebHost"));
 
     //        return new CoreDbContext(builder.Options);
@@ -69,7 +69,7 @@ namespace SF.WebHost
 
     //        var config = builder.Build();
 
-    //        var connstr = "Server=.;Database=SF_Team_2017;uid=sa;pwd=123.com.cn;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;";
+    //        var connstr = "Server=.;Database=SF_Team_2017_Dev;uid=sa;pwd=123456;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;";
 
     //        if (String.IsNullOrWhiteSpace(connstr) == true)
     //        {

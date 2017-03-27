@@ -24,7 +24,7 @@ namespace SF.Module.Blog.Data
         {
 
             var builder = new DbContextOptionsBuilder<BlogContext>();
-            builder.UseSqlServer("Server=.;Database=SF_Team_Blog;uid=sa;pwd=123.com.cn;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;",
+            builder.UseSqlServer("Server=.;Database=SF_Team_Blog;uid=sa;pwd=123456;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;",
                   b => b.MigrationsAssembly("SF.Module.Blog"));
 
             return new BlogContext(builder.Options);
@@ -62,7 +62,7 @@ namespace SF.Module.Blog.Data
 
     //        var config = builder.Build();
 
-    //        var connstr = "Server=.;Database=SF_Team_2017;uid=sa;pwd=123.com.cn;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;";
+    //        var connstr = "Server=.;Database=SF_Team_2017_Dev;uid=sa;pwd=123456;Pooling=True;Min Pool Size=1;Max Pool Size=100;Trusted_Connection=True;MultipleActiveResultSets=true;Integrated Security=false;";
 
     //        if (String.IsNullOrWhiteSpace(connstr) == true)
     //        {

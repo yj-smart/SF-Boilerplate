@@ -5147,3 +5147,254 @@ ClientConnectionId:95be2619-329e-4bd6-9260-02f726101ae1
 Error Number:208,State:1,Class:16
 2017-03-27 23:55:09.683 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:37680/  
 2017-03-27 23:55:10.102 +08:00 [Information] Request finished in 435.4387ms 500 text/html; charset=utf-8
+2017-03-27 23:57:54.809 +08:00 [Information] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Core_SiteSettings] AS [c]
+2017-03-27 23:57:54.745 +08:00 [Information] Executing prioritized Configure action '"UseCustomizedRequestLocalization"' of "SF.WebHost.GobalExtension"
+2017-03-27 23:57:54.893 +08:00 [Information] Executing prioritized Configure action '"UseMvc"' of "SF.WebHost.GobalExtension"
+2017-03-27 23:57:55.236 +08:00 [Information] Executing prioritized Configure action '"UseEditorBuilder"' of "SF.Web.Control.Editor.CoreExtension"
+2017-03-27 23:57:55.236 +08:00 [Information] Executing prioritized Configure action '"UserExtensionsBuilder"' of "SF.WebHost.GobalExtension"
+2017-03-27 23:57:55.278 +08:00 [Information] Cache manager: adding cache handles...
+2017-03-27 23:57:55.289 +08:00 [Information] Creating handle 4204ed4c-65cf-4367-ae87-ec5b7b242a2b of type CacheManager.Core.Internal.DictionaryCacheHandle`1[TCacheValue].
+2017-03-27 23:57:55.888 +08:00 [Information] Executed DbCommand (9ms) [Parameters=[@__moduleInfo_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Active], [x].[CreatedBy], [x].[CreatedOn], [x].[DateActivated], [x].[DateDeactivated], [x].[DateInstalled], [x].[DeletedBy], [x].[DeletedOn], [x].[Installed], [x].[ModuleAssemblyName], [x].[ModuleName], [x].[ModuleVersion], [x].[SortIndex], [x].[UpdatedBy], [x].[UpdatedOn]
+FROM [Core_InstalledModule] AS [x]
+WHERE [x].[ModuleAssemblyName] = @__moduleInfo_Name_0
+2017-03-27 23:57:56.386 +08:00 [Information] Executed DbCommand (27ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?' (Size = 4000), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (Size = 4000), @p13='?', @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?', @p19='?' (Size = 4000), @p20='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_InstalledModule] ([Active], [CreatedBy], [CreatedOn], [DateActivated], [DateDeactivated], [DateInstalled], [DeletedBy], [DeletedOn], [Installed], [ModuleAssemblyName], [ModuleName], [ModuleVersion], [SortIndex], [UpdatedBy], [UpdatedOn])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+SELECT [Id]
+FROM [Core_InstalledModule]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-03-27 23:57:56.393 +08:00 [Information] Executed DbCommand (35ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?' (Size = 4000), @p7='?' (Size = 50), @p8='?' (Size = 36), @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?' (Size = 10), @p16='?' (Size = 20), @p17='?' (Size = 200), @p18='?' (Size = 250), @p19='?' (Size = 20), @p20='?' (Size = 20), @p21='?' (Size = 100), @p22='?' (Size = 200), @p23='?' (Size = 250), @p24='?' (Size = 250), @p25='?' (Size = 4000), @p26='?' (Size = 4000), @p27='?', @p28='?', @p29='?' (Size = 100), @p30='?' (Size = 100), @p31='?' (Size = 4000), @p32='?', @p33='?', @p34='?' (Size = 255), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (Size = 128), @p38='?', @p39='?', @p40='?' (Size = 100), @p41='?' (Size = 4000), @p42='?' (Size = 25), @p43='?' (Size = 100), @p44='?' (Size = 4000), @p45='?', @p46='?', @p47='?' (Size = 255), @p48='?', @p49='?' (Size = 255), @p50='?' (Size = 255), @p51='?' (Size = 10), @p52='?' (Size = 4000), @p53='?' (Size = 4000), @p54='?', @p55='?' (Size = 100), @p56='?' (Size = 4000), @p57='?', @p58='?' (Size = 255), @p59='?' (Size = 4000), @p60='?' (Size = 250), @p61='?' (Size = 4000), @p62='?', @p63='?' (Size = 255), @p64='?' (Size = 255), @p65='?' (Size = 4000), @p66='?' (Size = 4000), @p67='?', @p68='?', @p69='?', @p70='?', @p71='?', @p72='?' (Size = 50), @p73='?', @p74='?' (Size = 4000), @p75='?' (Size = 255), @p76='?' (Size = 255), @p77='?' (Size = 100), @p78='?' (Size = 4000), @p79='?' (Size = 4000), @p80='?', @p81='?' (Size = 20), @p82='?', @p83='?' (Size = 200), @p84='?', @p85='?' (Size = 500), @p86='?', @p87='?' (Size = 100), @p88='?' (Size = 50), @p89='?' (Size = 100), @p90='?' (Size = 4000), @p91='?' (Size = 4000), @p92='?', @p93='?', @p94='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_SiteSettings] ([AccountApprovalEmailCsv], [AddThisDotComUsername], [AliasId], [AllowDbFallbackWithLdap], [AllowNewRegistration], [AllowPersistentLogin], [AutoCreateLdapUserOnFirstLogin], [CaptchaOnLogin], [CaptchaOnRegistration], [CompanyCountry], [CompanyFax], [CompanyLocality], [CompanyName], [CompanyPhone], [CompanyPostalCode], [CompanyPublicEmail], [CompanyRegion], [CompanyStreetAddress], [CompanyStreetAddress2], [ConcurrencyStamp], [CreatedBy], [CreatedOn], [CreatedUtc], [DefaultEmailFromAddress], [DefaultEmailFromAlias], [DeletedBy], [DeletedOn], [DisableDbAuth], [DkimDomain], [DkimPrivateKey], [DkimPublicKey], [DkimSelector], [EmailLdapDbFallback], [EnabledAuthorization], [FacebookAppId], [FacebookAppSecret], [GoogleAnalyticsProfileId], [GoogleClientId], [GoogleClientSecret], [IsDataProtected], [IsServerAdminSite], [LdapDomain], [LdapPort], [LdapRootDN], [LdapServer], [LdapUserDNKey], [LoginInfoBottom], [LoginInfoTop], [MaxInvalidPasswordAttempts], [MicrosoftClientId], [MicrosoftClientSecret], [MinRequiredPasswordLength], [OidConnectAppId], [OidConnectAppSecret], [PreferredHostName], [PrivacyPolicy], [ReallyDeleteUsers], [RecaptchaPrivateKey], [RecaptchaPublicKey], [RegistrationAgreement], [RegistrationPreamble], [RequireApprovalBeforeLogin], [RequireConfirmedEmail], [RequireConfirmedPhone], [RequiresQuestionAndAnswer], [SignEmailWithDkim], [SiteFolderName], [SiteIsClosed], [SiteIsClosedMessage], [SiteName], [SmsClientId], [SmsFrom], [SmsSecureToken], [SmtpPassword], [SmtpPort], [SmtpPreferredEncoding], [SmtpRequiresAuth], [SmtpServer], [SmtpUseSsl], [SmtpUser], [SortIndex], [Theme], [TimeZoneId], [TwitterConsumerKey], [TwitterConsumerSecret], [UpdatedBy], [UpdatedOn], [UseEmailForLogin], [UseLdapAuth])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94);
+SELECT [Id]
+FROM [Core_SiteSettings]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-03-27 23:57:56.466 +08:00 [Information] Executed DbCommand (0ms) [Parameters=[@__moduleInfo_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Active], [x].[CreatedBy], [x].[CreatedOn], [x].[DateActivated], [x].[DateDeactivated], [x].[DateInstalled], [x].[DeletedBy], [x].[DeletedOn], [x].[Installed], [x].[ModuleAssemblyName], [x].[ModuleName], [x].[ModuleVersion], [x].[SortIndex], [x].[UpdatedBy], [x].[UpdatedOn]
+FROM [Core_InstalledModule] AS [x]
+WHERE [x].[ModuleAssemblyName] = @__moduleInfo_Name_0
+2017-03-27 23:57:56.476 +08:00 [Information] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Core_Role] AS [c]
+2017-03-27 23:57:56.511 +08:00 [Information] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?' (Size = 4000), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (Size = 4000), @p13='?', @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?', @p19='?' (Size = 4000), @p20='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_InstalledModule] ([Active], [CreatedBy], [CreatedOn], [DateActivated], [DateDeactivated], [DateInstalled], [DeletedBy], [DeletedOn], [Installed], [ModuleAssemblyName], [ModuleName], [ModuleVersion], [SortIndex], [UpdatedBy], [UpdatedOn])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+SELECT [Id]
+FROM [Core_InstalledModule]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-03-27 23:57:56.671 +08:00 [Information] Executed DbCommand (80ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?', @p9='?', @p10='?' (Size = 50), @p11='?' (Size = 128), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?', @p15='?', @p16='?' (Size = 50), @p17='?' (Size = 128), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?', @p21='?' (Size = 256), @p22='?' (Size = 256), @p23='?', @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?', @p27='?' (Size = 256), @p28='?' (Size = 256), @p29='?', @p30='?' (Size = 4000), @p31='?' (Size = 4000), @p32='?', @p33='?' (Size = 256), @p34='?' (Size = 256), @p35='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DECLARE @toInsert0 TABLE ([AfterJson] nvarchar(max), [BeforeJson] nvarchar(max), [CreateTime] datetime2, [Kind] int, [SourceId] nvarchar(50), [TypeName] nvarchar(128), [_Position] [int]);
+INSERT INTO @toInsert0
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, 0),
+(@p6, @p7, @p8, @p9, @p10, @p11, 1),
+(@p12, @p13, @p14, @p15, @p16, @p17, 2);
+
+DECLARE @inserted0 TABLE ([Id] int, [_Position] [int]);
+MERGE [Core_AutoHistory] USING @toInsert0 AS i ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (i.[AfterJson], i.[BeforeJson], i.[CreateTime], i.[Kind], i.[SourceId], i.[TypeName])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted0;
+
+SELECT [t].[Id] FROM [Core_AutoHistory] t
+INNER JOIN @inserted0 i ON ([t].[Id] = [i].[Id])
+ORDER BY [i].[_Position];
+
+DECLARE @toInsert3 TABLE ([ConcurrencyStamp] nvarchar(max), [Description] nvarchar(max), [Enabled] int, [Name] nvarchar(256), [NormalizedName] nvarchar(256), [SiteId] bigint, [_Position] [int]);
+INSERT INTO @toInsert3
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23, 0),
+(@p24, @p25, @p26, @p27, @p28, @p29, 1),
+(@p30, @p31, @p32, @p33, @p34, @p35, 2);
+
+DECLARE @inserted3 TABLE ([Id] bigint, [_Position] [int]);
+MERGE [Core_Role] USING @toInsert3 AS i ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([ConcurrencyStamp], [Description], [Enabled], [Name], [NormalizedName], [SiteId])
+VALUES (i.[ConcurrencyStamp], i.[Description], i.[Enabled], i.[Name], i.[NormalizedName], i.[SiteId])
+OUTPUT INSERTED.[Id], i._Position
+INTO @inserted3;
+
+SELECT [t].[Id] FROM [Core_Role] t
+INNER JOIN @inserted3 i ON ([t].[Id] = [i].[Id])
+ORDER BY [i].[_Position];
+2017-03-27 23:57:56.724 +08:00 [Information] Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Core_User] AS [c]
+2017-03-27 23:57:56.812 +08:00 [Information] Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[AccountApprovalEmailCsv], [s].[AddThisDotComUsername], [s].[AliasId], [s].[AllowDbFallbackWithLdap], [s].[AllowNewRegistration], [s].[AllowPersistentLogin], [s].[AutoCreateLdapUserOnFirstLogin], [s].[CaptchaOnLogin], [s].[CaptchaOnRegistration], [s].[CompanyCountry], [s].[CompanyFax], [s].[CompanyLocality], [s].[CompanyName], [s].[CompanyPhone], [s].[CompanyPostalCode], [s].[CompanyPublicEmail], [s].[CompanyRegion], [s].[CompanyStreetAddress], [s].[CompanyStreetAddress2], [s].[ConcurrencyStamp], [s].[CreatedBy], [s].[CreatedOn], [s].[CreatedUtc], [s].[DefaultEmailFromAddress], [s].[DefaultEmailFromAlias], [s].[DeletedBy], [s].[DeletedOn], [s].[DisableDbAuth], [s].[DkimDomain], [s].[DkimPrivateKey], [s].[DkimPublicKey], [s].[DkimSelector], [s].[EmailLdapDbFallback], [s].[EnabledAuthorization], [s].[FacebookAppId], [s].[FacebookAppSecret], [s].[GoogleAnalyticsProfileId], [s].[GoogleClientId], [s].[GoogleClientSecret], [s].[IsDataProtected], [s].[IsServerAdminSite], [s].[LdapDomain], [s].[LdapPort], [s].[LdapRootDN], [s].[LdapServer], [s].[LdapUserDNKey], [s].[LoginInfoBottom], [s].[LoginInfoTop], [s].[MaxInvalidPasswordAttempts], [s].[MicrosoftClientId], [s].[MicrosoftClientSecret], [s].[MinRequiredPasswordLength], [s].[OidConnectAppId], [s].[OidConnectAppSecret], [s].[PreferredHostName], [s].[PrivacyPolicy], [s].[ReallyDeleteUsers], [s].[RecaptchaPrivateKey], [s].[RecaptchaPublicKey], [s].[RegistrationAgreement], [s].[RegistrationPreamble], [s].[RequireApprovalBeforeLogin], [s].[RequireConfirmedEmail], [s].[RequireConfirmedPhone], [s].[RequiresQuestionAndAnswer], [s].[SignEmailWithDkim], [s].[SiteFolderName], [s].[SiteIsClosed], [s].[SiteIsClosedMessage], [s].[SiteName], [s].[SmsClientId], [s].[SmsFrom], [s].[SmsSecureToken], [s].[SmtpPassword], [s].[SmtpPort], [s].[SmtpPreferredEncoding], [s].[SmtpRequiresAuth], [s].[SmtpServer], [s].[SmtpUseSsl], [s].[SmtpUser], [s].[SortIndex], [s].[Theme], [s].[TimeZoneId], [s].[TwitterConsumerKey], [s].[TwitterConsumerSecret], [s].[UpdatedBy], [s].[UpdatedOn], [s].[UseEmailForLogin], [s].[UseLdapAuth]
+FROM [Core_SiteSettings] AS [s]
+WHERE ([s].[Id] <> 0) AND ([s].[IsServerAdminSite] = 1)
+2017-03-27 23:57:56.824 +08:00 [Information] Executed DbCommand (0ms) [Parameters=[@__moduleInfo_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Active], [x].[CreatedBy], [x].[CreatedOn], [x].[DateActivated], [x].[DateDeactivated], [x].[DateInstalled], [x].[DeletedBy], [x].[DeletedOn], [x].[Installed], [x].[ModuleAssemblyName], [x].[ModuleName], [x].[ModuleVersion], [x].[SortIndex], [x].[UpdatedBy], [x].[UpdatedOn]
+FROM [Core_InstalledModule] AS [x]
+WHERE [x].[ModuleAssemblyName] = @__moduleInfo_Name_0
+2017-03-27 23:57:56.874 +08:00 [Information] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?' (Size = 4000), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (Size = 4000), @p13='?', @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?', @p19='?' (Size = 4000), @p20='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_InstalledModule] ([Active], [CreatedBy], [CreatedOn], [DateActivated], [DateDeactivated], [DateInstalled], [DeletedBy], [DeletedOn], [Installed], [ModuleAssemblyName], [ModuleName], [ModuleVersion], [SortIndex], [UpdatedBy], [UpdatedOn])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+SELECT [Id]
+FROM [Core_InstalledModule]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-03-27 23:57:56.875 +08:00 [Information] Executed DbCommand (25ms) [Parameters=[@__site_Id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[ConcurrencyStamp], [x].[Description], [x].[Enabled], [x].[Name], [x].[NormalizedName], [x].[SiteId]
+FROM [Core_Role] AS [x]
+WHERE ([x].[SiteId] = @__site_Id_0) AND ([x].[NormalizedName] = N'ADMINISTRATORS')
+2017-03-27 23:57:56.876 +08:00 [Information] Executed DbCommand (0ms) [Parameters=[@__moduleInfo_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Active], [x].[CreatedBy], [x].[CreatedOn], [x].[DateActivated], [x].[DateDeactivated], [x].[DateInstalled], [x].[DeletedBy], [x].[DeletedOn], [x].[Installed], [x].[ModuleAssemblyName], [x].[ModuleName], [x].[ModuleVersion], [x].[SortIndex], [x].[UpdatedBy], [x].[UpdatedOn]
+FROM [Core_InstalledModule] AS [x]
+WHERE [x].[ModuleAssemblyName] = @__moduleInfo_Name_0
+2017-03-27 23:57:56.926 +08:00 [Information] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?' (Size = 4000), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (Size = 4000), @p13='?', @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?', @p19='?' (Size = 4000), @p20='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_InstalledModule] ([Active], [CreatedBy], [CreatedOn], [DateActivated], [DateDeactivated], [DateInstalled], [DeletedBy], [DeletedOn], [Installed], [ModuleAssemblyName], [ModuleName], [ModuleVersion], [SortIndex], [UpdatedBy], [UpdatedOn])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+SELECT [Id]
+FROM [Core_InstalledModule]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-03-27 23:57:56.932 +08:00 [Information] Executed DbCommand (0ms) [Parameters=[@__moduleInfo_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Active], [x].[CreatedBy], [x].[CreatedOn], [x].[DateActivated], [x].[DateDeactivated], [x].[DateInstalled], [x].[DeletedBy], [x].[DeletedOn], [x].[Installed], [x].[ModuleAssemblyName], [x].[ModuleName], [x].[ModuleVersion], [x].[SortIndex], [x].[UpdatedBy], [x].[UpdatedOn]
+FROM [Core_InstalledModule] AS [x]
+WHERE [x].[ModuleAssemblyName] = @__moduleInfo_Name_0
+2017-03-27 23:57:56.960 +08:00 [Information] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?' (Size = 4000), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (Size = 4000), @p13='?', @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?', @p19='?' (Size = 4000), @p20='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_InstalledModule] ([Active], [CreatedBy], [CreatedOn], [DateActivated], [DateDeactivated], [DateInstalled], [DeletedBy], [DeletedOn], [Installed], [ModuleAssemblyName], [ModuleName], [ModuleVersion], [SortIndex], [UpdatedBy], [UpdatedOn])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+SELECT [Id]
+FROM [Core_InstalledModule]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-03-27 23:57:56.962 +08:00 [Information] Executed DbCommand (0ms) [Parameters=[@__moduleInfo_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[Active], [x].[CreatedBy], [x].[CreatedOn], [x].[DateActivated], [x].[DateDeactivated], [x].[DateInstalled], [x].[DeletedBy], [x].[DeletedOn], [x].[Installed], [x].[ModuleAssemblyName], [x].[ModuleName], [x].[ModuleVersion], [x].[SortIndex], [x].[UpdatedBy], [x].[UpdatedOn]
+FROM [Core_InstalledModule] AS [x]
+WHERE [x].[ModuleAssemblyName] = @__moduleInfo_Name_0
+2017-03-27 23:57:57.002 +08:00 [Information] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?' (Size = 4000), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (Size = 4000), @p13='?', @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?', @p19='?' (Size = 4000), @p20='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_InstalledModule] ([Active], [CreatedBy], [CreatedOn], [DateActivated], [DateDeactivated], [DateInstalled], [DeletedBy], [DeletedOn], [Installed], [ModuleAssemblyName], [ModuleName], [ModuleVersion], [SortIndex], [UpdatedBy], [UpdatedOn])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+SELECT [Id]
+FROM [Core_InstalledModule]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-03-27 23:57:57.003 +08:00 [Information] Executing prioritized Configure action '"UseMvc"' of "SF.Module.Backend.ModuleInitializer"
+2017-03-27 23:57:57.004 +08:00 [Information] Executing prioritized Configure action '"UseMvc"' of "SF.Module.Blog.ModuleInitializer"
+2017-03-27 23:57:57.108 +08:00 [Information] User profile is available. Using '"C:\Users\Aalsat\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2017-03-27 23:57:57.216 +08:00 [Information] Executed DbCommand (14ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?', @p8='?' (Size = 128), @p9='?', @p10='?', @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?', @p14='?', @p15='?' (Size = 4000), @p16='?' (Size = 128), @p17='?', @p18='?', @p19='?' (Size = 128), @p20='?', @p21='?', @p22='?' (Size = 4000), @p23='?' (Size = 4000), @p24='?', @p25='?' (Size = 256), @p26='?', @p27='?', @p28='?' (Size = 4000), @p29='?', @p30='?', @p31='?', @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?', @p38='?' (Size = 4000), @p39='?', @p40='?' (Size = 4000), @p41='?' (Size = 256), @p42='?' (Size = 256), @p43='?' (Size = 4000), @p44='?', @p45='?' (Size = 4000), @p46='?' (Size = 4000), @p47='?', @p48='?', @p49='?', @p50='?' (Size = 4000), @p51='?', @p52='?' (Size = 4000), @p53='?', @p54='?' (Size = 4000), @p55='?', @p56='?' (Size = 128), @p57='?', @p58='?', @p59='?' (Size = 256), @p60='?' (Size = 4000), @p61='?', @p62='?' (Size = 128), @p63='?' (Size = 4000), @p64='?' (Size = 4000), @p65='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_User] ([AccessFailedCount], [AccountApproved], [AccountState], [AllowEndTime], [AllowStartTime], [AnswerQuestion], [AvatarUrl], [Birthday], [CheckOnLine], [ConcurrencyStamp], [CreatedBy], [CreatedOn], [CurrentShippingAddressId], [DeletedBy], [DeletedOn], [DepartmentId], [Description], [DisplayName], [DutyId], [Email], [EmailConfirmed], [FirstVisit], [Gender], [IsAdministrator], [IsDeleted], [IsLockedOut], [LastVisit], [LockEndDate], [LockStartDate], [LockoutEnabled], [LockoutEnd], [LogOnCount], [MSN], [ManagerId], [Mobile], [NormalizedEmail], [NormalizedUserName], [OICQ], [OrganizeId], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [PostId], [PreviousVisit], [Question], [SecurityLevel], [SecurityStamp], [SiteId], [TimeZoneId], [TwoFactorEnabled], [UpdatedBy], [UpdatedOn], [UserGuid], [UserName], [UserNo], [UserOnLine], [UserType], [WeChat], [WebSiteUrl], [WorkGroupId])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65);
+SELECT [Id]
+FROM [Core_User]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2017-03-27 23:57:57.327 +08:00 [Information] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_UserRole] ([UserId], [RoleId])
+VALUES (@p6, @p7);
+2017-03-27 23:57:57.365 +08:00 [Information] Executed DbCommand (4ms) [Parameters=[@__site_Id_0='?', @__ToUpperInvariant_1='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [x].[Id], [x].[ConcurrencyStamp], [x].[Description], [x].[Enabled], [x].[Name], [x].[NormalizedName], [x].[SiteId]
+FROM [Core_Role] AS [x]
+WHERE ([x].[SiteId] = @__site_Id_0) AND ([x].[NormalizedName] = @__ToUpperInvariant_1)
+2017-03-27 23:57:57.374 +08:00 [Information] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?', @p3='?', @p4='?' (Size = 50), @p5='?' (Size = 128), @p6='?', @p7='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Core_AutoHistory] ([AfterJson], [BeforeJson], [CreateTime], [Kind], [SourceId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Core_AutoHistory]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+
+INSERT INTO [Core_UserRole] ([UserId], [RoleId])
+VALUES (@p6, @p7);
+2017-03-27 23:57:57.723 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:37680/  
+2017-03-27 23:57:58.298 +08:00 [Information] Executed DbCommand (2ms) [Parameters=[@__hostName_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[CreatedBy], [x].[CreatedOn], [x].[DeletedBy], [x].[DeletedOn], [x].[HostName], [x].[SiteId], [x].[SortIndex], [x].[UpdatedBy], [x].[UpdatedOn]
+FROM [Core_SiteHost] AS [x]
+WHERE [x].[HostName] = @__hostName_0
+2017-03-27 23:57:58.406 +08:00 [Information] Executed DbCommand (5ms) [Parameters=[@__p_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [t].[Id], [t].[AccountApprovalEmailCsv], [t].[AddThisDotComUsername], [t].[AliasId], [t].[AllowDbFallbackWithLdap], [t].[AllowNewRegistration], [t].[AllowPersistentLogin], [t].[AutoCreateLdapUserOnFirstLogin], [t].[CaptchaOnLogin], [t].[CaptchaOnRegistration], [t].[CompanyCountry], [t].[CompanyFax], [t].[CompanyLocality], [t].[CompanyName], [t].[CompanyPhone], [t].[CompanyPostalCode], [t].[CompanyPublicEmail], [t].[CompanyRegion], [t].[CompanyStreetAddress], [t].[CompanyStreetAddress2], [t].[ConcurrencyStamp], [t].[CreatedBy], [t].[CreatedOn], [t].[CreatedUtc], [t].[DefaultEmailFromAddress], [t].[DefaultEmailFromAlias], [t].[DeletedBy], [t].[DeletedOn], [t].[DisableDbAuth], [t].[DkimDomain], [t].[DkimPrivateKey], [t].[DkimPublicKey], [t].[DkimSelector], [t].[EmailLdapDbFallback], [t].[EnabledAuthorization], [t].[FacebookAppId], [t].[FacebookAppSecret], [t].[GoogleAnalyticsProfileId], [t].[GoogleClientId], [t].[GoogleClientSecret], [t].[IsDataProtected], [t].[IsServerAdminSite], [t].[LdapDomain], [t].[LdapPort], [t].[LdapRootDN], [t].[LdapServer], [t].[LdapUserDNKey], [t].[LoginInfoBottom], [t].[LoginInfoTop], [t].[MaxInvalidPasswordAttempts], [t].[MicrosoftClientId], [t].[MicrosoftClientSecret], [t].[MinRequiredPasswordLength], [t].[OidConnectAppId], [t].[OidConnectAppSecret], [t].[PreferredHostName], [t].[PrivacyPolicy], [t].[ReallyDeleteUsers], [t].[RecaptchaPrivateKey], [t].[RecaptchaPublicKey], [t].[RegistrationAgreement], [t].[RegistrationPreamble], [t].[RequireApprovalBeforeLogin], [t].[RequireConfirmedEmail], [t].[RequireConfirmedPhone], [t].[RequiresQuestionAndAnswer], [t].[SignEmailWithDkim], [t].[SiteFolderName], [t].[SiteIsClosed], [t].[SiteIsClosedMessage], [t].[SiteName], [t].[SmsClientId], [t].[SmsFrom], [t].[SmsSecureToken], [t].[SmtpPassword], [t].[SmtpPort], [t].[SmtpPreferredEncoding], [t].[SmtpRequiresAuth], [t].[SmtpServer], [t].[SmtpUseSsl], [t].[SmtpUser], [t].[SortIndex], [t].[Theme], [t].[TimeZoneId], [t].[TwitterConsumerKey], [t].[TwitterConsumerSecret], [t].[UpdatedBy], [t].[UpdatedOn], [t].[UseEmailForLogin], [t].[UseLdapAuth]
+FROM (
+    SELECT TOP(@__p_0) [c0].[Id], [c0].[AccountApprovalEmailCsv], [c0].[AddThisDotComUsername], [c0].[AliasId], [c0].[AllowDbFallbackWithLdap], [c0].[AllowNewRegistration], [c0].[AllowPersistentLogin], [c0].[AutoCreateLdapUserOnFirstLogin], [c0].[CaptchaOnLogin], [c0].[CaptchaOnRegistration], [c0].[CompanyCountry], [c0].[CompanyFax], [c0].[CompanyLocality], [c0].[CompanyName], [c0].[CompanyPhone], [c0].[CompanyPostalCode], [c0].[CompanyPublicEmail], [c0].[CompanyRegion], [c0].[CompanyStreetAddress], [c0].[CompanyStreetAddress2], [c0].[ConcurrencyStamp], [c0].[CreatedBy], [c0].[CreatedOn], [c0].[CreatedUtc], [c0].[DefaultEmailFromAddress], [c0].[DefaultEmailFromAlias], [c0].[DeletedBy], [c0].[DeletedOn], [c0].[DisableDbAuth], [c0].[DkimDomain], [c0].[DkimPrivateKey], [c0].[DkimPublicKey], [c0].[DkimSelector], [c0].[EmailLdapDbFallback], [c0].[EnabledAuthorization], [c0].[FacebookAppId], [c0].[FacebookAppSecret], [c0].[GoogleAnalyticsProfileId], [c0].[GoogleClientId], [c0].[GoogleClientSecret], [c0].[IsDataProtected], [c0].[IsServerAdminSite], [c0].[LdapDomain], [c0].[LdapPort], [c0].[LdapRootDN], [c0].[LdapServer], [c0].[LdapUserDNKey], [c0].[LoginInfoBottom], [c0].[LoginInfoTop], [c0].[MaxInvalidPasswordAttempts], [c0].[MicrosoftClientId], [c0].[MicrosoftClientSecret], [c0].[MinRequiredPasswordLength], [c0].[OidConnectAppId], [c0].[OidConnectAppSecret], [c0].[PreferredHostName], [c0].[PrivacyPolicy], [c0].[ReallyDeleteUsers], [c0].[RecaptchaPrivateKey], [c0].[RecaptchaPublicKey], [c0].[RegistrationAgreement], [c0].[RegistrationPreamble], [c0].[RequireApprovalBeforeLogin], [c0].[RequireConfirmedEmail], [c0].[RequireConfirmedPhone], [c0].[RequiresQuestionAndAnswer], [c0].[SignEmailWithDkim], [c0].[SiteFolderName], [c0].[SiteIsClosed], [c0].[SiteIsClosedMessage], [c0].[SiteName], [c0].[SmsClientId], [c0].[SmsFrom], [c0].[SmsSecureToken], [c0].[SmtpPassword], [c0].[SmtpPort], [c0].[SmtpPreferredEncoding], [c0].[SmtpRequiresAuth], [c0].[SmtpServer], [c0].[SmtpUseSsl], [c0].[SmtpUser], [c0].[SortIndex], [c0].[Theme], [c0].[TimeZoneId], [c0].[TwitterConsumerKey], [c0].[TwitterConsumerSecret], [c0].[UpdatedBy], [c0].[UpdatedOn], [c0].[UseEmailForLogin], [c0].[UseLdapAuth]
+    FROM [Core_SiteSettings] AS [c0]
+) AS [t]
+ORDER BY [t].[CreatedUtc]
+2017-03-27 23:57:59.017 +08:00 [Information] Executed DbCommand (10ms) [Parameters=[@__requestPath_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[Id], [x].[CreatedBy], [x].[CreatedOn], [x].[DeletedBy], [x].[DeletedOn], [x].[EntityId], [x].[EntityTypeId], [x].[Slug], [x].[SortIndex], [x].[UpdatedBy], [x].[UpdatedOn], [e].[Id], [e].[CreatedBy], [e].[CreatedOn], [e].[DeletedBy], [e].[DeletedOn], [e].[Name], [e].[RoutingAction], [e].[RoutingController], [e].[SortIndex], [e].[UpdatedBy], [e].[UpdatedOn]
+FROM [Entitys_UrlSlugEntity] AS [x]
+INNER JOIN [Entitys_EntityType] AS [e] ON [x].[EntityTypeId] = [e].[Id]
+WHERE [x].[Slug] = @__requestPath_0
+2017-03-27 23:57:59.307 +08:00 [Information] Authorization failed for user: null.
+2017-03-27 23:57:59.315 +08:00 [Information] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'.
+2017-03-27 23:57:59.327 +08:00 [Information] Executing ChallengeResult with authentication schemes ([]).
+2017-03-27 23:57:59.395 +08:00 [Information] AuthenticationScheme: "Cookies" was challenged.
+2017-03-27 23:57:59.403 +08:00 [Information] Executed action "SF.Module.Backend.Controllers.HomeController.Index (SF.Module.Backend)" in 157.9655ms
+2017-03-27 23:57:59.660 +08:00 [Information] Request finished in 1963.3196ms 302 
+2017-03-27 23:57:59.791 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:37680/login?ReturnUrl=%2F  
+2017-03-27 23:58:00.490 +08:00 [Information] Executing action method "SF.Module.Backend.Controllers.AccountController.Login (SF.Module.Backend)" with arguments (["/"]) - ModelState is Valid
+2017-03-27 23:58:04.794 +08:00 [Information] Executing ViewResult, running view at path "/Modules/SF.Module.Backend/Views/Account/Login.cshtml".
+2017-03-27 23:58:07.536 +08:00 [Information] Executed action "SF.Module.Backend.Controllers.AccountController.Login (SF.Module.Backend)" in 7700.1911ms
+2017-03-27 23:58:07.549 +08:00 [Information] Request finished in 7758.4239ms 200 text/html; charset=utf-8
+2017-03-27 23:58:07.784 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:37680/profiler/includes.js?v=4.0.0.0  
+2017-03-27 23:58:07.806 +08:00 [Information] Request finished in 22.63ms 200 application/javascript
+2017-03-27 23:58:08.585 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:37680/profiler/includes.css?v=4.0.0.0  
+2017-03-27 23:58:08.586 +08:00 [Information] Request finished in 1.4984ms 200 text/css
+2017-03-27 23:58:08.601 +08:00 [Information] Request starting HTTP/1.1 POST http://localhost:37680/profiler/results application/x-www-form-urlencoded; charset=UTF-8 80
+2017-03-27 23:58:08.641 +08:00 [Information] Request starting HTTP/1.1 POST http://localhost:37680/profiler/results application/x-www-form-urlencoded; charset=UTF-8 1562
+2017-03-27 23:58:08.862 +08:00 [Information] Request finished in 261.4395ms 200 application/json
+2017-03-27 23:58:08.881 +08:00 [Information] Request finished in 243.8639ms 200 application/json

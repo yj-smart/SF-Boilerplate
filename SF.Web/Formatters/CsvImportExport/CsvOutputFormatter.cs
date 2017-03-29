@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Formatters;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace SF.Web.Formatters.CsvImportExport
 {
@@ -89,7 +89,8 @@ namespace SF.Web.Formatters.CsvImportExport
             {
 
                 var vals = obj.GetType().GetProperties().Select(
-                    pi => new {
+                    pi => new
+                    {
                         Value = pi.GetValue(obj, null)
                     }
                 );

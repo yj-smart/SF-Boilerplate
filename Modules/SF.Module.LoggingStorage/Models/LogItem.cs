@@ -63,7 +63,5 @@ namespace SF.Module.LoggingStorage.Models
 
             return log;
         }
-
-
     }
 }

@@ -1,7 +1,5 @@
 ﻿
 using SF.Entitys.Abstraction;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
 
 namespace SF.Entitys
 {

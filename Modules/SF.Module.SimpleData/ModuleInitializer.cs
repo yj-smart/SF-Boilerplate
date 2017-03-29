@@ -1,16 +1,16 @@
-﻿
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using SF.Core.Infrastructure.Modules;
+using SF.Module.SimpleData.Data;
 using System;
 using System.Collections.Generic;
-using Microsoft.Extensions.DependencyInjection;
-using SF.Core;
-using Microsoft.EntityFrameworkCore;
-using SF.Module.SimpleData.Data;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using SF.Web.Modules;
-using SF.Core.Infrastructure.Modules;
 
 namespace SF.Module.SimpleData
 {
+    /// <summary>
+    /// SimpleData模块初始化
+    /// </summary>
     public class ModuleInitializer : ModuleInitializerBase, IModuleInitializer
     {
         public override IEnumerable<KeyValuePair<int, Action<IServiceCollection>>> ConfigureServicesActionsByPriorities
@@ -23,6 +23,7 @@ namespace SF.Module.SimpleData
                 };
             }
         }
+
         public void AddLocalizationService(IServiceCollection services)
         {
             services.AddDbContext<UnicornsContext>((serviceProvider, options) =>
@@ -32,7 +33,5 @@ namespace SF.Module.SimpleData
 
             services.TryAddScoped<ISimpleDataUnitOfWork, SimpleDataUnitOfWork>();
         }
-
-
     }
 }

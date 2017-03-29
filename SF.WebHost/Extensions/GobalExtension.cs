@@ -1,79 +1,75 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using AutoMapper;
 using CacheManager.Core;
+using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
-using System.IO;
-using Microsoft.AspNetCore.Http;
-using Microsoft.CodeAnalysis;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Mvc.Razor;
-using System.Globalization;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.Net.Http.Headers;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json;
-using AutoMapper;
 using NodaTime;
 using NodaTime.TimeZones;
+using Scrutor;
+using SF.Core;
+using SF.Core.Abstraction.Domain;
+using SF.Core.Abstraction.GenericServices;
+using SF.Core.Abstraction.Interceptors;
 using SF.Core.Abstraction.Resolvers;
 using SF.Core.Abstraction.Steup;
-using SF.Data.Identity;
-using SF.Data;
-using SF.Core.Interceptors;
-using SF.Entitys;
-using SF.Core;
-using SF.Web.Components;
-using SF.Core.Localization;
-using SF.Web.Middleware;
-using SF.Core.Abstraction.Interceptors;
 using SF.Core.Abstraction.UoW;
-using SF.Core.EFCore.UoW;
 using SF.Core.Common.Message.Email;
 using SF.Core.Common.Message.Sms;
-using SF.Core.EFCore.Repository;
 using SF.Core.Common.Razor;
-using SF.Web.Base.Business;
+using SF.Core.EFCore.Repository;
+using SF.Core.EFCore.UoW;
 using SF.Core.Errors;
-using SF.Web.Formatters.CsvImportExport;
-using SF.Web.Attributes;
-using SF.Core.Extensions;
+using SF.Core.Infrastructure.Modules;
+using SF.Core.Interceptors;
+using SF.Core.Json.JsonConverters;
+using SF.Core.Localization;
 using SF.Core.StartupTask;
-using Scrutor;
-using SF.Core.Abstraction.Domain;
-using SF.Web.Base.DataContractMapper;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using MediatR;
-using SF.Web.Security;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Filters;
-using SF.Web.Security.Filters;
-using SF.Web.Security.Attributes;
-using SF.Web;
-using SF.Core.Abstraction.GenericServices;
-using SF.Web.Security.AuthorizationHandlers.Custom;
 using SF.Core.Storage;
+using SF.Data;
+using SF.Data.Identity;
+using SF.Entitys;
+using SF.Web;
+using SF.Web.Attributes;
+using SF.Web.Base.Business;
+using SF.Web.Base.DataContractMapper;
+using SF.Web.Components;
+using SF.Web.Extensions;
+using SF.Web.Formatters.CsvImportExport;
+using SF.Web.Middleware;
+using SF.Web.Modules;
+using SF.Web.Security;
 using SF.Web.Site;
 using SF.Web.Site.Implementation;
-using SF.Web.Extensions;
-using SF.Core.Json.JsonConverters;
-using SF.Core.Infrastructure.Modules;
-using SF.Core.Infrastructure.Modules.Builder;
-using SF.Web.Modules;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace SF.WebHost
 {
+    /// <summary>
+    /// 全局扩展
+    /// </summary>
     public class GobalExtension : ModuleInitializerBase
     {
         public override IEnumerable<KeyValuePair<int, Action<IServiceCollection>>> ConfigureServicesActionsByPriorities
@@ -113,6 +109,7 @@ namespace SF.WebHost
         {
             this.serviceProvider.GetService<IHostingEnvironment>().WebRootFileProvider = this.CreateCompositeFileProvider();
         }
+
         /// <summary>
         /// 配置数据库链接 
         /// </summary>
@@ -150,11 +147,9 @@ namespace SF.WebHost
                options.UseSqlServer(configurationRoot.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("SF.WebHost"))
                       .UseInternalServiceProvider(serviceProvider));
-
-
             }
-
         }
+
         /// <summary>
         /// 添加全局服务注册
         /// </summary>
@@ -165,7 +160,6 @@ namespace SF.WebHost
             AddDistributedCache(services);
             services.AddSession();
             services.AddOptions();
-
 
             services.Configure<RazorViewEngineOptions>(options => { options.ViewLocationExpanders.Add(new ModuleViewLocationExpander()); });
             services.AddScoped<IViewRenderService, ViewRenderService>();
@@ -371,7 +365,6 @@ namespace SF.WebHost
             }
         }
 
-
         /// <summary>
         /// 配置审计日志
         /// </summary>
@@ -411,9 +404,8 @@ namespace SF.WebHost
                 .DirectoryBuilder(_ => $@"{Path.Combine(hostingEnvironment.ContentRootPath, "Logs")}\{DateTime.Now:yyyy-MM-dd}")
                 .FilenameBuilder(auditEvent => $"{auditEvent.Environment.UserName}_{DateTime.Now.Ticks}.json"));
             }
-
-
         }
+
         /// <summary>
         /// 添加TagHelper分布式缓存配置
         /// </summary>
@@ -445,8 +437,10 @@ namespace SF.WebHost
             //services.AddMemoryCache();
         }
 
-
-        //全局构建服务
+        /// <summary>
+        /// 全局构建服务
+        /// </summary>
+        /// <param name="services"></param>
         private void AddMediator(IServiceCollection services)
         {
 
@@ -464,7 +458,6 @@ namespace SF.WebHost
 
             //var container = builder.Build();
             //var serviceProvider = container.Resolve<IServiceProvider>();
-
         }
 
         private Action<IMvcBuilder>[] GetPrioritizedAddMvcActions()
@@ -502,8 +495,8 @@ namespace SF.WebHost
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
-
         }
+
         /// <summary>
         /// 配置静态文件
         /// </summary>
@@ -522,8 +515,6 @@ namespace SF.WebHost
                     };
                 }
             });
-
-
 
             //模块的静态文件
             foreach (var module in ExtensionManager.Modules)
@@ -581,8 +572,6 @@ namespace SF.WebHost
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
             });
 
-
-
             //多租户
 
             //applicationBuilder.UsePerTenant<SiteContext>((ctx, builder) =>
@@ -628,8 +617,6 @@ namespace SF.WebHost
             //applicationBuilder.UseSwagger();
             //applicationBuilder.UseSwaggerUi();
             #endregion
-
-
         }
 
         /// <summary>
@@ -648,7 +635,6 @@ namespace SF.WebHost
             //applicationBuilder.AddPluginCustomizedMvc();
             #endregion
             applicationBuilder.AddmoduleCustomizedMvc(configurationRoot, hostingEnvironment);
-
         }
 
         /// <summary>
@@ -680,8 +666,8 @@ namespace SF.WebHost
         private IFileProvider CreateCompositeFileProvider()
         {
             IFileProvider[] fileProviders = new IFileProvider[] {
-        this.serviceProvider.GetService<IHostingEnvironment>().WebRootFileProvider
-      };
+                this.serviceProvider.GetService<IHostingEnvironment>().WebRootFileProvider
+            };
 
             return new CompositeFileProvider(
               fileProviders.Concat(

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Xml;
-using Newtonsoft.Json;
 
 namespace SF.Core.Json.JsonConverters
 {

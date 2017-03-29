@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
+using SF.Module.Localization.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using SF.Core.Abstraction.Data;
-using SF.Module.Localization.Models;
-using SF.Module.Localization.Data;
 
 namespace SF.Module.Localization
 {

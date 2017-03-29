@@ -1,8 +1,7 @@
-﻿using System.Security.Claims;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using SF.Data;
 using SF.Entitys;
+using System.Security.Claims;
 
 namespace SF.Data.Identity
 {

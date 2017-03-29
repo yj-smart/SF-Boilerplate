@@ -2,7 +2,7 @@
   "$schema": "http://cachemanager.net/schemas/cachemanager.json#",
   "cacheManagers": [
     {
-      "loggerFactory": {"knownType": "Microsoft" },
+      "loggerFactory": { "knownType": "Microsoft" },
       "name": "simpleMemoryCache",
       "handles": [
         {

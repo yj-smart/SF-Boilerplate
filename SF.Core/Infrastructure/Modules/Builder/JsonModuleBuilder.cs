@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Runtime.Loader;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyModel;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System.Linq;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace SF.Core.Infrastructure.Modules.Builder
 {
+    /// <summary>
+    /// Json模块构建
+    /// </summary>
     public class JsonModuleBuilder : IModuleConfigBuilder
     {
-        public JsonModuleBuilder(
-            IServiceProvider serviceProvider)
+        public JsonModuleBuilder(IServiceProvider serviceProvider)
         {
             this.log = serviceProvider.GetService<ILoggerFactory>().CreateLogger<JsonModuleBuilder>();
-
         }
 
         private const string cacheKey = "modulejsonbuild";
@@ -26,12 +22,14 @@ namespace SF.Core.Infrastructure.Modules.Builder
         private ModuleConfig moduleConfig = null;
         private string FilePath;
 
-
+        /// <summary>
+        /// 构建配置
+        /// </summary>
+        /// <param name="filePath">路径</param>
+        /// <returns></returns>
         public async Task<ModuleConfig> BuildConfig(string filePath)
         {
-            // ultimately we will need to cache sitemap per site
             FilePath = filePath;
-
             moduleConfig = await BuildConfigByFile();
 
             return moduleConfig;
@@ -44,7 +42,6 @@ namespace SF.Core.Infrastructure.Modules.Builder
             if (!File.Exists(filePath))
             {
                 log.LogError("unable to build navigation tree, could not find the file " + filePath);
-
                 return null;
             }
 
@@ -60,13 +57,11 @@ namespace SF.Core.Infrastructure.Modules.Builder
             ModuleConfig result = BuildTreeFromJson(json);
 
             return result;
-
         }
 
         private string ResolveFilePath()
         {
             string filePath = Path.Combine(FilePath, "module.json");
-
             return filePath;
         }
 
@@ -76,12 +71,8 @@ namespace SF.Core.Infrastructure.Modules.Builder
         //https://github.com/JamesNK/Newtonsoft.Json/issues/66
         public ModuleConfig BuildTreeFromJson(string jsonString)
         {
-            ModuleConfig moduleConfig =
-                    JsonConvert.DeserializeObject<ModuleConfig>(jsonString, new ModuleJsonConverter());
-
-
+            ModuleConfig moduleConfig = JsonConvert.DeserializeObject<ModuleConfig>(jsonString, new ModuleJsonConverter());
             return moduleConfig;
-
         }
     }
 }

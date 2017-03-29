@@ -16,11 +16,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using SaasKit.Multitenancy;
 using SF.Core.Abstraction.Resolvers;
-using SF.Entitys;
 using SF.Core.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using SF.Entitys;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -73,6 +70,5 @@ namespace SF.Web.Components
 
             return Task.FromResult("America/New_York"); //default
         }
-
     }
 }

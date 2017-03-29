@@ -1,32 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using simpleGlobal = SF.Core;
-using System.Reflection;
-using System.Linq;
 using SF.Core;
-using SF.Core.Common;
 using SF.Core.Abstraction.Mapping;
-using AutoMapper;
-using SF.Core.StartupTask;
-using Microsoft.Extensions.Configuration.UserSecrets;
-using SF.Core.Extensions;
-using StackExchange.Profiling.Mvc;
-using StackExchange.Profiling;
-using StackExchange.Profiling.Storage;
-using Microsoft.Extensions.Caching.Memory;
+using SF.Core.Common;
 using SF.Core.Infrastructure.Modules;
+using SF.Core.StartupTask;
+using StackExchange.Profiling;
+using StackExchange.Profiling.Mvc;
+using StackExchange.Profiling.Storage;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using simpleGlobal = SF.Core;
 
 namespace SF.WebHost
 {
     public class Startup
     {
+        //定义一种检索服务对象的机制，服务对象是为其他对象提供自定义支持的对象
         protected IServiceProvider serviceProvider;
+        //提供有关运行应用程序的Web托管环境的信息
         private readonly IHostingEnvironment _hostingEnvironment;
+        //提供程序集信息
         protected IAssemblyProvider assemblyProvider;
         protected ILogger<Startup> logger;
 
@@ -78,8 +79,6 @@ namespace SF.WebHost
 
         public void ConfigureServices(IServiceCollection services)
         {
-
-
             this.DiscoverAssemblies();
 
             simpleGlobal.GlobalConfiguration.WebRootPath = _hostingEnvironment.WebRootPath;
@@ -138,9 +137,6 @@ namespace SF.WebHost
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IMemoryCache cache)
         {
-            //  loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            // loggerFactory.AddDebug();
-            //  app.UseApplicationInsightsRequestTelemetry();
             if (env.IsDevelopment() || env.IsEnvironment("Development"))
             {
                 app.UseBrowserLink();
@@ -159,20 +155,17 @@ namespace SF.WebHost
                 this.logger.LogInformation("Executing prioritized Configure action '{0}' of {1}", this.GetActionMethodInfo(prioritizedConfigureAction));
                 prioritizedConfigureAction(app);
             }
-
-
         }
 
-
         /// <summary>
-        /// 加载安装的模块信息
+        /// 加载程序集、模块的相关信息
         /// </summary>
         private void DiscoverAssemblies()
         {
             string extensionsPath = this.Configuration["Modules:Path"];
             IEnumerable<Assembly> assemblies = this.assemblyProvider.GetAssemblies(
               string.IsNullOrEmpty(extensionsPath) ?
-                null :this.serviceProvider.GetService<IHostingEnvironment>().ContentRootPath
+                null : this.serviceProvider.GetService<IHostingEnvironment>().ContentRootPath
             );
             ExtensionManager.SetAssemblies(assemblies.ToList());
 
@@ -180,7 +173,6 @@ namespace SF.WebHost
               string.IsNullOrEmpty(extensionsPath) ?
                 null : this.serviceProvider.GetService<IHostingEnvironment>().ContentRootPath + extensionsPath);
             ExtensionManager.SetModules(modules.ToList());
-            
         }
 
         /// <summary>
@@ -197,6 +189,7 @@ namespace SF.WebHost
 
             return this.GetPrioritizedActions(configureServicesActionsByPriorities);
         }
+
         /// <summary>
         /// 
         /// </summary>

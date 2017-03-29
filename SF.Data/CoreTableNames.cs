@@ -12,10 +12,6 @@
 * Description: SimpleFramework快速开发平台
 * Website：http://www.mayisite.com
 *********************************************************************************/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SF.Data
 {
@@ -39,6 +35,5 @@ namespace SF.Data
         public string GeoZoneTableName { get; set; } = "GeoZone";
         public string CurrencyTableName { get; set; } = "Currency";
         public string LanguageTableName { get; set; } = "Language";
-
     }
 }

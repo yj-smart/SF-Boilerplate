@@ -15,7 +15,7 @@
 
 using SF.Core.EFCore.UoW;
 using SF.Module.Localization.Models;
- 
+
 namespace SF.Module.Localization.Data.Repository
 {
     /// <summary>
@@ -24,6 +24,6 @@ namespace SF.Module.Localization.Data.Repository
     public interface IResourceRepository :
        IEFCoreQueryableRepository<ResourceEntity, long>
     {
-         
+
     }
 }

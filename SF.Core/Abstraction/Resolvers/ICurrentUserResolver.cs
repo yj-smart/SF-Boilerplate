@@ -12,14 +12,10 @@
 * Description: SimpleFramework快速开发平台
 * Website：http://www.mayisite.com
 *********************************************************************************/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SF.Core.Abstraction.Resolvers
 {
- 
+
     /// <summary>
     /// 获取当前用户名
     /// </summary>

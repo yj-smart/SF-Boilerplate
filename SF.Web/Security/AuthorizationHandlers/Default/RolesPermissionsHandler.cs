@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using SF.Entitys;
-using SF.Web.Security.Converters;
 using SF.Web.Security.Extensions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SF.Web.Security
 {
@@ -46,8 +44,6 @@ namespace SF.Web.Security
             user.Authorize(false, grantingNames.ToArray());
 
             context.Succeed(requirement);
-            
-            
         }
 
         private static void PermissionNames(Permission permission, HashSet<string> stack)

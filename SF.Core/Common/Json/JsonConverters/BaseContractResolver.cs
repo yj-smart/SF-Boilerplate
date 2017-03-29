@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections;
 using System.Reflection;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace SF.Core.Json.JsonConverters
 {
@@ -31,7 +31,7 @@ namespace SF.Core.Json.JsonConverters
                     return false;
 
                 var countProp = property.PropertyType.GetProperty("Count");
-                var count = (int?) countProp?.GetValue(value, null);
+                var count = (int?)countProp?.GetValue(value, null);
                 return count == 0;
             }
             catch (Exception)

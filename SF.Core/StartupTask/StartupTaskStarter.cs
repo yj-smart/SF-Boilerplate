@@ -13,11 +13,9 @@
 * Website：http://www.mayisite.com
 *********************************************************************************/
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SF.Core.StartupTask
 {
@@ -63,7 +61,6 @@ namespace SF.Core.StartupTask
 
                 _logger.LogTrace($"Complete Startup Task; Type: '{startupTask}', Time: { watch.ElapsedMilliseconds}ms");
             }
-
         }
     }
 }

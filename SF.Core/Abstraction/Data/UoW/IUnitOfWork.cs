@@ -12,8 +12,6 @@
 * Description: SF快速开发平台
 * Website：http://www.mayisite.com
 *********************************************************************************/
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,7 +40,7 @@ namespace SF.Core.Abstraction.UoW
         /// </exception>
         void Commit();
 
- 
+
         /// <summary>
         /// Asynchronously prepares the <see cref="IUnitOfWork"/> for work.
         /// </summary>
@@ -70,7 +68,5 @@ namespace SF.Core.Abstraction.UoW
         /// <param name="queryable">The query to wrap</param>
         /// <returns>An <see cref="IAsyncQueryable{T}"/> instance, wrapping the given query</returns>
         IAsyncQueryable<T> PrepareAsyncQueryable<T>(IQueryable<T> queryable);
-
- 
     }
 }

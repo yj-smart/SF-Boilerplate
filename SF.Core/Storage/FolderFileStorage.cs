@@ -22,10 +22,12 @@ using System.Threading.Tasks;
 
 namespace SF.Core.Storage
 {
-     public class FolderFileStorage : IFileStorage {
+    public class FolderFileStorage : IFileStorage
+    {
         private readonly object _lockObject = new object();
 
-        public FolderFileStorage(string folder) {
+        public FolderFileStorage(string folder)
+        {
             if (!Path.IsPathRooted(folder))
                 folder = Path.GetFullPath(folder);
             if (!folder.EndsWith("\\"))
@@ -39,26 +41,32 @@ namespace SF.Core.Storage
 
         public string Folder { get; set; }
 
-        public async Task<Stream> GetFileStreamAsync(string path, CancellationToken cancellationToken = default(CancellationToken)) {
+        public async Task<Stream> GetFileStreamAsync(string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
             if (String.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException(nameof(path));
 
-            try {
+            try
+            {
                 if (!await ExistsAsync(path).AnyContext())
                     return null;
 
                 return File.OpenRead(Path.Combine(Folder, path));
-            } catch (FileNotFoundException) {
+            }
+            catch (FileNotFoundException)
+            {
                 return null;
             }
         }
 
-        public Task<FileSpec> GetFileInfoAsync(string path) {
+        public Task<FileSpec> GetFileInfoAsync(string path)
+        {
             var info = new FileInfo(Path.Combine(Folder, path));
             if (!info.Exists)
                 return Task.FromResult<FileSpec>(null);
 
-            return Task.FromResult(new FileSpec {
+            return Task.FromResult(new FileSpec
+            {
                 Path = path.Replace(Folder, String.Empty),
                 Created = info.CreationTimeUtc,
                 Modified = info.LastWriteTimeUtc,
@@ -66,11 +74,13 @@ namespace SF.Core.Storage
             });
         }
 
-        public Task<bool> ExistsAsync(string path) {
+        public Task<bool> ExistsAsync(string path)
+        {
             return Task.FromResult(File.Exists(Path.Combine(Folder, path)));
         }
 
-        public Task<bool> SaveFileAsync(string path, Stream stream, CancellationToken cancellationToken = default(CancellationToken)) {
+        public Task<bool> SaveFileAsync(string path, Stream stream, CancellationToken cancellationToken = default(CancellationToken))
+        {
             if (String.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException(nameof(path));
 
@@ -78,76 +88,95 @@ namespace SF.Core.Storage
             if (!Directory.Exists(directory))
                 Directory.CreateDirectory(directory);
 
-            try {
-                using (var fileStream = File.Create(Path.Combine(Folder, path))) {
+            try
+            {
+                using (var fileStream = File.Create(Path.Combine(Folder, path)))
+                {
                     if (stream.CanSeek)
                         stream.Seek(0, SeekOrigin.Begin);
 
                     stream.CopyTo(fileStream);
                 }
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 return Task.FromResult(false);
             }
 
             return Task.FromResult(true);
         }
 
-        public Task<bool> RenameFileAsync(string path, string newpath, CancellationToken cancellationToken = default(CancellationToken)) {
+        public Task<bool> RenameFileAsync(string path, string newpath, CancellationToken cancellationToken = default(CancellationToken))
+        {
             if (String.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException(nameof(path));
             if (String.IsNullOrWhiteSpace(newpath))
                 throw new ArgumentNullException(nameof(newpath));
 
-            try {
-                lock (_lockObject) {
+            try
+            {
+                lock (_lockObject)
+                {
                     string directory = Path.GetDirectoryName(newpath);
                     if (directory != null && !Directory.Exists(Path.Combine(Folder, directory)))
                         Directory.CreateDirectory(Path.Combine(Folder, directory));
 
                     File.Move(Path.Combine(Folder, path), Path.Combine(Folder, newpath));
                 }
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 return Task.FromResult(false);
             }
 
             return Task.FromResult(true);
         }
 
-        public Task<bool> CopyFileAsync(string path, string targetpath, CancellationToken cancellationToken = default(CancellationToken)) {
+        public Task<bool> CopyFileAsync(string path, string targetpath, CancellationToken cancellationToken = default(CancellationToken))
+        {
             if (String.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException(nameof(path));
             if (String.IsNullOrWhiteSpace(targetpath))
                 throw new ArgumentNullException(nameof(targetpath));
 
-            try {
-                lock (_lockObject) {
+            try
+            {
+                lock (_lockObject)
+                {
                     string directory = Path.GetDirectoryName(targetpath);
                     if (directory != null && !Directory.Exists(Path.Combine(Folder, directory)))
                         Directory.CreateDirectory(Path.Combine(Folder, directory));
 
                     File.Copy(Path.Combine(Folder, path), Path.Combine(Folder, targetpath));
                 }
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 return Task.FromResult(false);
             }
 
             return Task.FromResult(true);
         }
 
-        public Task<bool> DeleteFileAsync(string path, CancellationToken cancellationToken = default(CancellationToken)) {
+        public Task<bool> DeleteFileAsync(string path, CancellationToken cancellationToken = default(CancellationToken))
+        {
             if (String.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException(nameof(path));
 
-            try {
+            try
+            {
                 File.Delete(Path.Combine(Folder, path));
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 return Task.FromResult(false);
             }
 
             return Task.FromResult(true);
         }
 
-        public Task<IEnumerable<FileSpec>> GetFileListAsync(string searchPattern = null, int? limit = null, int? skip = null, CancellationToken cancellationToken = default(CancellationToken)) {
+        public Task<IEnumerable<FileSpec>> GetFileListAsync(string searchPattern = null, int? limit = null, int? skip = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
             if (limit.HasValue && limit.Value <= 0)
                 return Task.FromResult<IEnumerable<FileSpec>>(new List<FileSpec>());
 
@@ -158,12 +187,14 @@ namespace SF.Core.Storage
             if (!Directory.Exists(Path.GetDirectoryName(Path.Combine(Folder, searchPattern))))
                 return Task.FromResult<IEnumerable<FileSpec>>(list);
 
-            foreach (var path in Directory.GetFiles(Folder, searchPattern, SearchOption.AllDirectories).Skip(skip ?? 0).Take(limit ?? Int32.MaxValue)) {
+            foreach (var path in Directory.GetFiles(Folder, searchPattern, SearchOption.AllDirectories).Skip(skip ?? 0).Take(limit ?? Int32.MaxValue))
+            {
                 var info = new FileInfo(path);
                 if (!info.Exists)
                     continue;
 
-                list.Add(new FileSpec {
+                list.Add(new FileSpec
+                {
                     Path = path.Replace(Folder, String.Empty),
                     Created = info.CreationTimeUtc,
                     Modified = info.LastWriteTimeUtc,

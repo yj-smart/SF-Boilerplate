@@ -1,17 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SF.Web.Control.Editor
 {
     public static class UEditorServiceExtension
     {
         public static UEditorActionCollection AddUEditorService(
-            this IServiceCollection services, 
-            string configFile="config.json", 
+            this IServiceCollection services,
+            string configFile = "config.json",
             bool isCache = false)
         {
             Config.ConfigFile = configFile;

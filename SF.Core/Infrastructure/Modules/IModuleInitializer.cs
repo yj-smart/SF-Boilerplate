@@ -9,11 +9,12 @@ using System.Collections.Generic;
 namespace SF.Core.Infrastructure.Modules
 {
     public interface IModuleInitializer
-    {   
+    {
         /// <summary>
         /// 服务注册
         /// </summary>
         IEnumerable<KeyValuePair<int, Action<IServiceCollection>>> ConfigureServicesActionsByPriorities { get; }
+
         /// <summary>
         /// 配置构建
         /// </summary>
@@ -27,6 +28,7 @@ namespace SF.Core.Infrastructure.Modules
         /// 添加模块MVC配置
         /// </summary>
         IEnumerable<KeyValuePair<int, Action<IMvcBuilder>>> AddMvcActionsByPriorities { get; }
+
         /// <summary>
         /// 自定义模块路由
         /// </summary>

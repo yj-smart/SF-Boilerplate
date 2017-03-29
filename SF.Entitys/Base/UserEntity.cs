@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using SF.Entitys.Abstraction;
-
-using System.Collections.ObjectModel;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SF.Entitys
 {
-    public class UserEntity : IdentityUser<long, IdentityUserClaim<long>, UserRoleEntity, IdentityUserLogin<long>>, IEntityWithTypedId<long>, IUserInfo, IHaveCreatedMeta, IHaveUpdatedMeta, IHaveDeletedMeta,IMustHaveSite
+    public class UserEntity : IdentityUser<long, IdentityUserClaim<long>, UserRoleEntity, IdentityUserLogin<long>>, IEntityWithTypedId<long>, IUserInfo, IHaveCreatedMeta, IHaveUpdatedMeta, IHaveDeletedMeta, IMustHaveSite
     {
         public UserEntity()
         {
@@ -19,7 +17,7 @@ namespace SF.Entitys
             UpdatedOn = this.UpdatedOn == default(DateTimeOffset) ? currentTime : this.CreatedOn;
             UpdatedBy = this.UpdatedBy ?? currentUser;
         }
-    
+
 
         public Guid UserGuid { get; set; }
 

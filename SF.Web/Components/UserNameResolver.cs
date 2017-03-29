@@ -1,5 +1,4 @@
 ﻿using SF.Core.Abstraction.Resolvers;
-using System;
 
 namespace SF.Web.Components
 {

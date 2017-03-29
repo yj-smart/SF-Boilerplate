@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SF.Core.Abstraction.Data;
-using SF.Entitys.Abstraction;
-using SF.Core.Abstraction.UoW;
 using SF.Core.EFCore.UoW;
 using SF.Core.QueryExtensions.Extensions;
+using SF.Entitys.Abstraction;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +14,7 @@ namespace SF.Web.Base.Business
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class GenericReaderService<T, TKey> : IGenericReaderService<T, TKey> where T : BaseEntity<TKey>
-        
+
     {
         #region Fields
 
@@ -74,7 +72,5 @@ namespace SF.Web.Base.Business
             return await _repository.GetByIdAsync(id);
         }
         #endregion
-
-
     }
 }

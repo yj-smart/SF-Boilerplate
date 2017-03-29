@@ -1,0 +1,26 @@
+{
+  "EventType": "GET Home/Index",
+  "Environment": {
+    "UserName": "Aalsat",
+    "MachineName": "AALSAT-PC",
+    "CallingMethodName": "SF.Module.Backend.Controllers.HomeController.Index()",
+    "AssemblyName": "SF.Module.Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "Culture": "zh"
+  },
+  "StartDate": "2017-03-28T09:29:57.8819258+08:00",
+  "EndDate": "2017-03-28T09:29:58.7945339+08:00",
+  "Duration": 913,
+  "Action": {
+    "HttpMethod": "GET",
+    "ControllerName": "Home",
+    "ActionName": "Index",
+    "ViewName": "Index",
+    "FormVariables": null,
+    "ActionParameters": {},
+    "UserName": "Administrator",
+    "RequestUrl": "http://localhost:37680/",
+    "IpAddress": "::1",
+    "ResponseStatus": "200",
+    "ResponseStatusCode": 200
+  }
+}

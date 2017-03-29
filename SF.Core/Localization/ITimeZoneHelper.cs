@@ -1,6 +1,6 @@
-﻿using System;
+﻿using NodaTime.TimeZones;
+using System;
 using System.Collections.Generic;
-using NodaTime.TimeZones;
 
 namespace SF.Core.Localization
 {

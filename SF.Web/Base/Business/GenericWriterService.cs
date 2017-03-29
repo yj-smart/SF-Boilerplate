@@ -1,11 +1,11 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SF.Entitys.Abstraction;
 using SF.Core.Abstraction.UoW;
 using SF.Core.Abstraction.UoW.Helper;
 using SF.Core.EFCore.UoW;
 using SF.Core.Errors.Exceptions;
+using SF.Entitys.Abstraction;
 using System;
 using System.Threading.Tasks;
 
@@ -15,7 +15,7 @@ namespace SF.Web.Base.Business
     /// 写入处理
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class GenericWriterService<T,TKey> : IGenericWriterService<T, TKey> where T : BaseEntity<TKey>
+    public class GenericWriterService<T, TKey> : IGenericWriterService<T, TKey> where T : BaseEntity<TKey>
     {
         #region Fields
         protected readonly IUnitOfWork _unitOfWork;
@@ -47,7 +47,7 @@ namespace SF.Web.Base.Business
         public async Task<T> InsertAsync(T entity)
         {
             if (entity == null) throw new ArgumentException("No codetable provided", nameof(entity));
-          
+
             await _unitOfWork.ExecuteAndCommitAsync(() =>
             {
                 return _repository.AddAsync(entity);

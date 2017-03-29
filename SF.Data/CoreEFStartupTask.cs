@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using SF.Entitys;
 using SF.Core.StartupTask;
+using SF.Entitys;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SF.Data
@@ -135,15 +133,10 @@ namespace SF.Data
                                 db.UserRoles.Add(ur);
                                 await db.SaveChangesAsync();
                             }
-
-
                         }
                     }
-
                 }
-
             }
         }
-
     }
 }

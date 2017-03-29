@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
 
 namespace SF.Web.Security.Filters
 {
@@ -22,9 +22,9 @@ namespace SF.Web.Security.Filters
 
             var services = context.ActionContext.HttpContext.RequestServices;
 
-          //  var filters = services.GetService<IServiceProvider>().GetService<IEnumerable<IFilterMetadata>>();
+            //  var filters = services.GetService<IServiceProvider>().GetService<IEnumerable<IFilterMetadata>>();
 
-             var filters = services.GetService<IEnumerable<IFilterMetadata>>();
+            var filters = services.GetService<IEnumerable<IFilterMetadata>>();
 
             if (context.ActionContext.ActionDescriptor.FilterDescriptors != null)
             {

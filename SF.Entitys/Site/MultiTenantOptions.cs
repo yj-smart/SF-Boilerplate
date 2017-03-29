@@ -1,7 +1,4 @@
-﻿
-using System;
-
-namespace SF.Entitys
+﻿namespace SF.Entitys
 {
     public class MultiTenantOptions
     {

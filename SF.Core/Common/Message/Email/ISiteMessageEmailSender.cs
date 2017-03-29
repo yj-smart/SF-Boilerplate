@@ -1,6 +1,5 @@
 ﻿
 using SF.Entitys;
-using SF.Core.Extensions;
 using System.Threading.Tasks;
 
 namespace SF.Core.Common.Message.Email
@@ -9,8 +8,8 @@ namespace SF.Core.Common.Message.Email
     {
         Task SendAccountConfirmationEmailAsync(
             ISiteContext siteSettings,
-            string toAddress, 
-            string subject, 
+            string toAddress,
+            string subject,
             string confirmationUrl);
 
         Task SendSecurityCodeEmailAsync(

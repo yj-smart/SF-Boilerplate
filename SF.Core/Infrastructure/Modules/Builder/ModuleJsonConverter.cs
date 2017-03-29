@@ -1,25 +1,28 @@
-﻿
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using SF.Core.Json.JsonConverters;
 using System;
 
 namespace SF.Core.Infrastructure.Modules.Builder
 {
+    /// <summary>
+    /// 模块Json转换
+    /// </summary>
     public class ModuleJsonConverter : JsonCreationConverter<ModuleConfig>
     {
         protected override ModuleConfig Create(Type objectType, JObject jObject)
         {
-            if (jObject["Value"] == null) { return null; }
+            if (jObject["Value"] == null)
+            {
+                return null;
+            }
 
             ModuleConfig moduleConfigRoot = CreateTreeNode(null, jObject);
-
-
+            
             return moduleConfigRoot;
         }
 
         private ModuleConfig CreateTreeNode(ModuleConfig tNode, JToken jNode)
         {
-            //build the child node
             ModuleConfig moduleConfig = new ModuleConfig();
 
             if (jNode["Value"]["Key"] != null)
@@ -85,23 +88,14 @@ namespace SF.Core.Infrastructure.Modules.Builder
                 moduleConfig.ConnectionString = (string)jNode["Value"]["ConnectionString"];
             }
 
-
-            //TODO: add DataAttributes collection
-
-
             if (tNode == null)
             {
-
                 return moduleConfig;
             }
             else
             {
-
                 return moduleConfig;
             }
-
-
         }
-
     }
 }

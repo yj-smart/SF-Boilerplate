@@ -16,12 +16,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using SF.Core.Common;
-using SF.Core.Errors.Exceptions;
 using SF.Core.Extensions;
 using SF.Web.Extensions;
 using SF.Web.Models;
 using System;
-using System.Net;
 
 namespace SF.Web.Attributes
 {
@@ -34,12 +32,12 @@ namespace SF.Web.Attributes
         }
         public override void OnException(ExceptionContext context)
         {
-           
+
             var msg = "";
             if (context.Exception is UnauthorizedAccessException)
             {
                 msg = "Unauthorized Access";
-                
+
                 // handle logging here
                 _Logger.LogWarning("Unauthorized Access in Controller Filter.");
             }
@@ -53,7 +51,7 @@ namespace SF.Web.Attributes
                 msg = context.Exception.GetBaseException().Message;
                 string stack = context.Exception.StackTrace;
 #endif
-               
+
                 // handle logging here
                 _Logger.LogWarning($"Application thrown error: { msg}", context.Exception);
             }
@@ -64,7 +62,5 @@ namespace SF.Web.Attributes
 
             base.OnException(context);
         }
-
-      
     }
 }

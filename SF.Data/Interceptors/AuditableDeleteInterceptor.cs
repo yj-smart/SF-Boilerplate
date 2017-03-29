@@ -3,8 +3,6 @@ using SF.Core.Abstraction.Resolvers;
 using SF.Entitys.Abstraction;
 using System;
 
-
-
 namespace SF.Core.Interceptors
 {
     /// <summary>
@@ -13,11 +11,12 @@ namespace SF.Core.Interceptors
     public class AuditableDeleteInterceptor : ChangeInterceptor<IHaveDeletedMeta>
     {
         private readonly IUserNameResolver _userNameResolver;
-      
+
         public AuditableDeleteInterceptor(IUserNameResolver userNameResolver)
         {
             _userNameResolver = userNameResolver;
         }
+
         /// <summary>
         /// 新增前
         /// </summary>
@@ -26,10 +25,8 @@ namespace SF.Core.Interceptors
         public override void OnBeforeInsert(EntityEntry entry, IHaveDeletedMeta item)
         {
             base.OnBeforeInsert(entry, item);
-
-        
-            
         }
+
         /// <summary>
         /// 更新前
         /// </summary>
@@ -43,6 +40,5 @@ namespace SF.Core.Interceptors
             item.DeletedOn = item.DeletedOn == default(DateTimeOffset) ? currentTime : item.DeletedOn;
             item.DeletedBy = item.DeletedBy ?? currentUser;
         }
-       
     }
 }

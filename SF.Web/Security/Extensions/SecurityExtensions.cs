@@ -1,19 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Filters;
-using SF.Web.Security.Filters;
-using SF.Web.Security.Attributes;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using SF.Core;
-using Microsoft.AspNetCore.Identity;
-using SF.Entitys;
-using SF.Web.Security.Providers;
-using SF.Core.StartupTask;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.DependencyInjection;
+using SF.Core.StartupTask;
+using SF.Web.Security.Attributes;
 using SF.Web.Security.AuthorizationHandlers.Custom;
+using SF.Web.Security.Filters;
 
 namespace SF.Web.Security
 {
@@ -52,6 +45,5 @@ namespace SF.Web.Security
             // and replaces the current service provider for the tenant's one.
 
         }
-
     }
 }

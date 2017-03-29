@@ -14,7 +14,6 @@
 *********************************************************************************/
 using Microsoft.EntityFrameworkCore;
 using SF.Data;
-using SF.Data.WorkArea;
 using SF.Entitys;
 using System;
 using System.Collections.Generic;

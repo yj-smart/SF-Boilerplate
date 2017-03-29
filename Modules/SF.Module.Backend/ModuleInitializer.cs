@@ -1,21 +1,17 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using SF.Core;
 using SF.Core.Abstraction.UI.Backends;
-using SF.Web.Security;
+using SF.Core.Infrastructure.Modules;
 using SF.Module.Backend.Data.Uow;
-using SF.Module.Backend.Domain.DataItem.Service;
-using SF.Module.Backend.Domain.DataItemDetail.Service;
-using SF.Module.Backend.Services;
-using SF.Module.Backend.Services.Implementation;
+using SF.Web.Security;
 using System;
 using System.Collections.Generic;
-using SF.Web.Modules;
-using SF.Core.Infrastructure.Modules;
 
 namespace SF.Module.Backend
 {
+    /// <summary>
+    /// Backend模块初始化
+    /// </summary>
     public class ModuleInitializer : ModuleInitializerBase, IModuleInitializer
     {
         public override IBackendMetadata BackendMetadata
@@ -54,8 +50,9 @@ namespace SF.Module.Backend
         private void AddCoreServices(IServiceCollection services)
         {
             services.AddTransient<IPermissionProvider, BackendPermissionProvider>();
-            services.AddTransient<IBackendUnitOfWork, BackendUnitOfWork>(); 
+            services.AddTransient<IBackendUnitOfWork, BackendUnitOfWork>();
         }
+
         /// <summary>
         /// 全局构建
         /// </summary>
@@ -64,6 +61,5 @@ namespace SF.Module.Backend
         {
 
         }
-
     }
 }

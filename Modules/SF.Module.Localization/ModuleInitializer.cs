@@ -1,22 +1,17 @@
-﻿
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Localization;
+using SF.Core.Infrastructure.Modules;
+using SF.Module.Localization.Data;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Localization;
-using SF.Core.Abstraction;
-using SF.Core;
-using SF.Module.Localization.Data;
-using SF.Data;
-using SF.Core.Interceptors;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using SF.Web.Modules;
-using SF.Core.Infrastructure.Modules;
 
 namespace SF.Module.Localization
 {
+    /// <summary>
+    /// Localization模块初始化
+    /// </summary>
     public class ModuleInitializer : ModuleInitializerBase, IModuleInitializer
     {
         public override IEnumerable<KeyValuePair<int, Action<IServiceCollection>>> ConfigureServicesActionsByPriorities
@@ -29,6 +24,7 @@ namespace SF.Module.Localization
                 };
             }
         }
+
         public void AddLocalizationService(IServiceCollection services)
         {
             services.AddTransient<IResourceUnitOfWork, ResourceUnitOfWork>();
@@ -50,9 +46,6 @@ namespace SF.Module.Localization
 
                 services.AddLocalization(options => options.ResourcesPath = "GlobalResources");
             }
-
         }
-
-
     }
 }

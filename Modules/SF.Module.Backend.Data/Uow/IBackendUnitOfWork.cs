@@ -12,9 +12,8 @@
 * Description: SF快速开发平台
 * Website：http://www.mayisite.com
 *********************************************************************************/
-using SF.Core.Abstraction.UoW;
-using SF.Data;
 using SF.Core.EFCore.UoW;
+using SF.Data;
 using SF.Entitys;
 using SF.Module.Backend.Data.Entitys;
 

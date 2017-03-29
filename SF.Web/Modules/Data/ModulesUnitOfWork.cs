@@ -13,15 +13,10 @@
 * Website：http://www.mayisite.com
 *********************************************************************************/
 using SF.Core.Abstraction.Interceptors;
-using SF.Data;
-using SF.Data.WorkArea;
 using SF.Core.EFCore.UoW;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SF.Entitys;
 using SF.Core.Infrastructure.Modules;
+using SF.Data;
+using System.Collections.Generic;
 
 namespace SF.Web.Modules.Data
 {

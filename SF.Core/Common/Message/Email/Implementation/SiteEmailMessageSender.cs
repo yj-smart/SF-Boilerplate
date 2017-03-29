@@ -1,10 +1,7 @@
-﻿
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SF.Core.Common.Razor;
 using SF.Entitys;
-using SF.Core.Extensions;
 using System;
 using System.Threading.Tasks;
 
@@ -60,7 +57,7 @@ namespace SF.Core.Common.Message.Email
                 log.LogError(logMessage);
                 return;
             }
-            
+
             EmailSender sender = new EmailSender();
             try
             {
@@ -99,7 +96,7 @@ namespace SF.Core.Common.Message.Email
                 log.LogError(logMessage);
                 return;
             }
-            
+
             EmailSender sender = new EmailSender();
             // in account controller we are calling this method without await
             // so it doesn't block the UI. Which means it is running on a background thread
@@ -143,7 +140,7 @@ namespace SF.Core.Common.Message.Email
                 log.LogError(logMessage);
                 return;
             }
-            
+
             EmailSender sender = new EmailSender();
             try
             {
@@ -183,7 +180,7 @@ namespace SF.Core.Common.Message.Email
             }
 
             string subject = "新用户审批";
-           
+
             EmailSender sender = new EmailSender();
             try
             {
@@ -222,7 +219,7 @@ namespace SF.Core.Common.Message.Email
                 log.LogError(logMessage);
                 return;
             }
-            
+
             EmailSender sender = new EmailSender();
             // in account controller we are calling this method without await
             // so it doesn't block the UI. Which means it is running on a background thread
@@ -249,11 +246,6 @@ namespace SF.Core.Common.Message.Email
             {
                 log.LogError("error sending password reset email", ex);
             }
-
         }
-
-
     }
-
-
 }

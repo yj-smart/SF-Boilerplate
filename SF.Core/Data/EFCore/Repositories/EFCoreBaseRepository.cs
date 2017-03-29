@@ -13,15 +13,9 @@
 * Website：http://www.mayisite.com
 *********************************************************************************/
 using Microsoft.EntityFrameworkCore;
-using SF.Entitys.Abstraction;
-using SF.Entitys.Abstraction.Pages;
-using SF.Core.Abstraction.UoW;
 using SF.Core.EFCore.UoW;
-using System;
-using System.Collections.Generic;
+using SF.Entitys.Abstraction;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace SF.Core.EFCore.Repository
 {
@@ -44,8 +38,5 @@ namespace SF.Core.EFCore.Repository
         {
             return Query().Where(e => e.Id.Equals(id));
         }
-
-
     }
-
 }

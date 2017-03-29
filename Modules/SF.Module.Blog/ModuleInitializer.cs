@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using SF.Core;
+using SF.Core.Infrastructure.Modules;
 using SF.Module.Blog.Data;
 using SF.Module.Blog.Data.Uow;
 using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using SF.Web.Modules;
-using SF.Core.Infrastructure.Modules;
 
 namespace SF.Module.Blog
 {
+    /// <summary>
+    /// Blog模块初始化
+    /// </summary>
     public class ModuleInitializer : ModuleInitializerBase, IModuleInitializer
     {
-   
+
         public override IEnumerable<KeyValuePair<int, Action<IServiceCollection>>> ConfigureServicesActionsByPriorities
         {
             get
@@ -48,6 +49,7 @@ namespace SF.Module.Blog
                     .UseInternalServiceProvider(serviceProvider));
             services.AddTransient<IBlogUnitOfWork, BlogUnitOfWork>();
         }
+
         /// <summary>
         /// 全局构建
         /// </summary>

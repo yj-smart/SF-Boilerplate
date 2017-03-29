@@ -1,19 +1,17 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using SF.Core;
+using SF.Core.Abstraction.Data;
+using SF.Core.Common;
+using SF.Data.Extensions;
+using SF.Entitys;
+using SF.Entitys.Abstraction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using SF.Core.Abstraction;
-using SF.Core.Abstraction.Data;
-using SF.Entitys.Abstraction;
-using SF.Entitys;
-using System.Threading.Tasks;
 using System.Threading;
-using SF.Core.Extensions;
-using SF.Core;
-using SF.Core.Common;
-using SF.Data.Extensions;
+using System.Threading.Tasks;
 
 namespace SF.Data
 {
@@ -37,7 +35,7 @@ namespace SF.Data
                 typeToRegisterEntitys.AddRange(entityClassTypes);
 
                 //获取所有继承ICustomModelBuilder的实体映射
-                var customModelBuilderClassTypes = assemblie.ExportedTypes.Where(x => typeof(ICustomModelBuilder).IsAssignableFrom(x) 
+                var customModelBuilderClassTypes = assemblie.ExportedTypes.Where(x => typeof(ICustomModelBuilder).IsAssignableFrom(x)
                 && x.GetTypeInfo().IsClass
                 && x.EnsureDbContextAndEntitiesIncludeDbContextAttrCache<CoreDbContext>(true));
                 typeToRegisterCustomModelBuilders.AddRange(customModelBuilderClassTypes);

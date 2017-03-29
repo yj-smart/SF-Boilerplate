@@ -1,18 +1,18 @@
-﻿using SF.Core.Abstraction;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using SF.Core.Abstraction.UI.Backends;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.AspNetCore.Builder;
-using SF.Core.Abstraction.UI.Backends;
 
 namespace SF.Core.Infrastructure.Modules
 {
+    /// <summary>
+    /// 模块初始化基类
+    /// </summary>
     public abstract class ModuleInitializerBase : IModuleInitializer
     {
         protected IHostingEnvironment hostingEnvironment;
@@ -60,7 +60,7 @@ namespace SF.Core.Infrastructure.Modules
             get
             {
                 return null;
-              
+
             }
 
         }

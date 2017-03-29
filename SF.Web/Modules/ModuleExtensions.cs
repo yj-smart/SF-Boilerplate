@@ -3,11 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Scrutor;
-using SF.Core.Abstraction.Domain;
-using SF.Core.Abstraction.GenericServices;
 using SF.Core.Infrastructure.Modules.Builder;
-using SF.Web.Base.DataContractMapper;
 using SF.Web.Modules.Data;
 
 namespace SF.Web.Modules
@@ -36,7 +32,6 @@ namespace SF.Web.Modules
         /// <returns></returns>
         public static void AddModules(this IServiceCollection services)
         {
-
             services.Configure<RazorViewEngineOptions>(options =>
             {
 
@@ -44,8 +39,6 @@ namespace SF.Web.Modules
             services.AddSingleton<IModulesUnitOfWork, ModulesUnitOfWork>();
             services.AddSingleton<IModuleManager, ModuleManager>();
             services.AddScoped<IModuleConfigBuilder, JsonModuleBuilder>();
-
         }
-
     }
 }

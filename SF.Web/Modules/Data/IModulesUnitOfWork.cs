@@ -15,8 +15,6 @@
 using SF.Core.Abstraction.UoW;
 using SF.Core.Infrastructure.Modules;
 using SF.Data;
-using SF.Data.WorkArea;
-using SF.Entitys;
 
 
 namespace SF.Web.Modules.Data

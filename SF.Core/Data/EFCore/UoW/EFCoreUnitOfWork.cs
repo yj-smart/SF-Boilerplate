@@ -106,7 +106,7 @@ namespace SF.Core.EFCore.UoW
         /// </summary>
         protected override void OnBegin()
         {
-          
+
         }
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace SF.Core.EFCore.UoW
         /// <returns>The task for this operation</returns>
         protected override Task OnBeginAsync(CancellationToken ct)
         {
-           
+
             return Task.FromResult(true);
         }
 
@@ -241,7 +241,7 @@ namespace SF.Core.EFCore.UoW
         /// <param name="disposing">Disposes if true, else does nothing</param>
         protected virtual void Dispose(bool disposing)
         {
-           // Context.Dispose();
+            // Context.Dispose();
 
             if (_disposed)
                 return;

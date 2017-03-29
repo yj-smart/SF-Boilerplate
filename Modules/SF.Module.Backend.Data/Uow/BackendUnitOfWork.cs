@@ -13,11 +13,11 @@
 * Website：http://www.mayisite.com
 *********************************************************************************/
 using SF.Core.Abstraction.Interceptors;
-using SF.Data;
 using SF.Core.EFCore.UoW;
-using System.Collections.Generic;
-using SF.Module.Backend.Data.Entitys;
+using SF.Data;
 using SF.Entitys;
+using SF.Module.Backend.Data.Entitys;
+using System.Collections.Generic;
 
 namespace SF.Module.Backend.Data.Uow
 {

@@ -3,8 +3,6 @@ using SF.Core.Abstraction.Resolvers;
 using SF.Entitys.Abstraction;
 using System;
 
-
-
 namespace SF.Core.Interceptors
 {
     /// <summary>
@@ -13,11 +11,12 @@ namespace SF.Core.Interceptors
     public class AuditableUpdateInterceptor : ChangeInterceptor<IHaveUpdatedMeta>
     {
         private readonly IUserNameResolver _userNameResolver;
-       
+
         public AuditableUpdateInterceptor(IUserNameResolver userNameResolver)
         {
             _userNameResolver = userNameResolver;
         }
+
         /// <summary>
         /// 新增前
         /// </summary>
@@ -32,6 +31,7 @@ namespace SF.Core.Interceptors
             item.UpdatedOn = item.UpdatedOn == default(DateTimeOffset) ? currentTime : item.UpdatedOn;
             item.UpdatedBy = item.UpdatedBy ?? currentUser;
         }
+
         /// <summary>
         /// 更新前
         /// </summary>
@@ -44,6 +44,5 @@ namespace SF.Core.Interceptors
             item.UpdatedOn = currentTime;
             item.UpdatedBy = _userNameResolver.GetCurrentUserName();
         }
-       
     }
 }

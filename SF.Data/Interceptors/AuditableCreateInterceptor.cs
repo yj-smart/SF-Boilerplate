@@ -3,8 +3,6 @@ using SF.Core.Abstraction.Resolvers;
 using SF.Entitys.Abstraction;
 using System;
 
-
-
 namespace SF.Core.Interceptors
 {
     /// <summary>
@@ -12,13 +10,14 @@ namespace SF.Core.Interceptors
     /// </summary>
     public class AuditableCreateInterceptor : ChangeInterceptor<IHaveCreatedMeta>
     {
-        
+
         private readonly IUserNameResolver _userNameResolver;
 
         public AuditableCreateInterceptor(IUserNameResolver userNameResolver)
         {
             _userNameResolver = userNameResolver;
         }
+
         /// <summary>
         /// 新增前
         /// </summary>
@@ -32,8 +31,8 @@ namespace SF.Core.Interceptors
             var currentUser = _userNameResolver.GetCurrentUserName();
             item.CreatedOn = item.CreatedOn == default(DateTimeOffset) ? currentTime : item.CreatedOn;
             item.CreatedBy = item.CreatedBy ?? currentUser;
-       
         }
+
         /// <summary>
         /// 更新前
         /// </summary>
@@ -42,8 +41,6 @@ namespace SF.Core.Interceptors
         public override void OnBeforeUpdate(EntityEntry entry, IHaveCreatedMeta item)
         {
             base.OnBeforeUpdate(entry, item);
-
         }
-        
     }
 }

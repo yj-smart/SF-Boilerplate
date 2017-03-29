@@ -1,11 +1,9 @@
-﻿
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using System;
+﻿using Microsoft.AspNetCore.Http;
 using SF.Module.LoggingStorage.Data;
 using SF.Module.LoggingStorage.Models;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SF.Module.LoggingStorage.Services
 {
@@ -49,6 +47,5 @@ namespace SF.Module.LoggingStorage.Services
         {
             await logRepo.DeleteOlderThan(cutoffUtc, logLevel, CancellationToken.None);
         }
-
     }
 }

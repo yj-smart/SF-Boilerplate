@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Runtime.Loader;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Logging;
-using System.Linq;
-using SF.Core.Common;
-using CacheManager.Core;
-using SF.Core.Extensions;
-using SF.Data.MigratorHelper;
-using SF.Core.Infrastructure.Modules.Builder;
-using SF.Core.Infrastructure.Modules;
+﻿using CacheManager.Core;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
-using SF.Web.Modules.Data;
-using SF.Core.Abstraction.UoW.Helper;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using SF.Core;
+using SF.Core.Abstraction.UoW.Helper;
+using SF.Core.Extensions;
+using SF.Core.Infrastructure.Modules;
+using SF.Core.Infrastructure.Modules.Builder;
+using SF.Data.MigratorHelper;
+using SF.Web.Modules.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SF.Web.Modules
 {
@@ -163,6 +158,5 @@ namespace SF.Web.Modules
             _appPartManager.ApplicationParts.Remove(assmblyPartFromMgr);
 
         }
-
     }
 }

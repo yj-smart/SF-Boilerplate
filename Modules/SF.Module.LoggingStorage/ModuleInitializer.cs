@@ -1,25 +1,20 @@
-﻿using SF.Core.Abstraction;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using SF.Core.Infrastructure.Modules;
+using SF.Module.LoggingStorage.Data;
+using SF.Module.LoggingStorage.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using SF.Module.LoggingStorage.Services;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-using SF.Module.LoggingStorage.Data;
-using SF.Module.LoggingStorage.Models;
-
-using Microsoft.AspNetCore.Builder;
-using SF.Core;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Serilog;
-using SF.Web.Modules;
-using SF.Core.Infrastructure.Modules;
 
 namespace SF.Module.LoggingStorage
 {
+    /// <summary>
+    /// LoggingStorage模块初始化
+    /// </summary>
     public class ModuleInitializer : ModuleInitializerBase, IModuleInitializer
     {
 
@@ -47,7 +42,6 @@ namespace SF.Module.LoggingStorage
 
         private void AddEFLoggingService(IServiceCollection serviceCollection)
         {
-
             serviceCollection.TryAddScoped<ILogRepository, LogRepository>();
             serviceCollection.TryAddScoped<LogManager>();
 

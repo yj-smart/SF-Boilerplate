@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Builder;
-using SF.Core;
-using SF.Web.Modules;
 using SF.Core.Infrastructure.Modules;
+using System;
+using System.Collections.Generic;
 
 namespace SF.Web.Control.Editor
 {
@@ -60,7 +56,5 @@ namespace SF.Web.Control.Editor
 
         }
         #endregion
-
-
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 
 
 namespace SF.Core.Errors
@@ -27,7 +23,5 @@ namespace SF.Core.Errors
             error.Title = "We are currently experiencing a technical error";
             error.Code = "TECHE001";
         }
-
-
     }
 }

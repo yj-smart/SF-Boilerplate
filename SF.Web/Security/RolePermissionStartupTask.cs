@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using SF.Core.Abstraction.UoW.Helper;
+using SF.Core.StartupTask;
 using SF.Data;
 using SF.Entitys;
-using SF.Core.StartupTask;
 using SF.Web.Security.Converters;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -56,7 +55,7 @@ namespace SF.Web.Security
                             Logger.LogInformation($"Defining new role {stereotype.Name} for permission stereotype");
                         }
 
-                        role = new RoleEntity { Name = stereotype.Name, NormalizedName= stereotype.Name.ToUpper(), Description = stereotype.Description,SiteId=_siteContext.Id };
+                        role = new RoleEntity { Name = stereotype.Name, NormalizedName = stereotype.Name.ToUpper(), Description = stereotype.Description, SiteId = _siteContext.Id };
                         await _roleManager.CreateAsync(role);
                     }
 

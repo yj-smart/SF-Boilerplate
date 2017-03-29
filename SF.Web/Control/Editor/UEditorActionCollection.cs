@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
+using SF.Web.Control.Editor.Handlers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SF.Web.Control.Editor.Handlers;
 
 namespace SF.Web.Control.Editor
 {
-    public class UEditorActionCollection:Dictionary<string,Action<HttpContext>>
+    public class UEditorActionCollection : Dictionary<string, Action<HttpContext>>
     {
         public UEditorActionCollection()
         {

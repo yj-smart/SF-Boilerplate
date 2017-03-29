@@ -12,8 +12,8 @@ namespace SF.Entitys.Abstraction
     /// </summary>
     public abstract class BaseEntity : BaseEntity<long>
     {
-        
- 
+
+
     }
 
     public abstract class BaseEntity<TKey> : EntityWithAllMeta<TKey>

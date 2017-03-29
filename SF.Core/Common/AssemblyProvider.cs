@@ -1,15 +1,14 @@
-﻿
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyModel;
+using Microsoft.Extensions.Logging;
+using SF.Core.Infrastructure.Modules;
+using SF.Core.Infrastructure.Modules.Builder;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyModel;
-using Microsoft.Extensions.Logging;
-using System.Linq;
-using SF.Core.Infrastructure.Modules;
-using SF.Core.Infrastructure.Modules.Builder;
 
 namespace SF.Core.Common
 {
@@ -17,31 +16,44 @@ namespace SF.Core.Common
     {
         protected ILogger<AssemblyProvider> _logger;
         public IServiceProvider _serviceProvider;
+        /// <summary>
+        /// 是否候选程序集
+        /// </summary>
         public Func<Assembly, bool> IsCandidateAssembly { get; set; }
+        /// <summary>
+        /// 是否候选编译库
+        /// </summary>
         public Func<Library, bool> IsCandidateCompilationLibrary { get; set; }
 
         public AssemblyProvider(IServiceProvider serviceProvider)
         {
             this._serviceProvider = serviceProvider;
             this._logger = serviceProvider.GetService<ILoggerFactory>().CreateLogger<AssemblyProvider>();
-            this.IsCandidateAssembly = assembly =>
-             /* !assembly.FullName.StartsWith("Microsoft.") && !assembly.FullName.Contains("SF.WebHost") &&*/ assembly.FullName.StartsWith("SF.");
+            this.IsCandidateAssembly = assembly => assembly.FullName.StartsWith("SF.");
             this.IsCandidateCompilationLibrary = library =>
               library.Name != "NETStandard.Library" && !library.Name.StartsWith("Microsoft.") && !library.Name.StartsWith("System.");
         }
 
+        /// <summary>
+        /// 获取程序集信息
+        /// </summary>
+        /// <param name="path">路径</param>
+        /// <returns></returns>
         public IEnumerable<Assembly> GetAssemblies(string path)
         {
             List<Assembly> assemblies = new List<Assembly>();
 
             assemblies.AddRange(this.GetAssembliesFromPath(path));
-            //  assemblies.AddRange(this.GetAssembliesFromDependencyContext());
             return assemblies;
         }
 
+        /// <summary>
+        /// 获取模块信息
+        /// </summary>
+        /// <param name="path">路径</param>
+        /// <returns></returns>
         public IEnumerable<ModuleInfo> GetModules(string path)
         {
-
             IList<ModuleInfo> modules = new List<ModuleInfo>();
 
             if (!string.IsNullOrEmpty(path) && Directory.Exists(path))
@@ -67,7 +79,6 @@ namespace SF.Core.Common
                         }
                         catch (FileLoadException)
                         {
-                            // Get loaded assembly
                             assembly = Assembly.Load(new AssemblyName(Path.GetFileNameWithoutExtension(file.Name)));
 
                             if (assembly == null)
@@ -83,8 +94,7 @@ namespace SF.Core.Common
                             {
                                 Name = moduleFolder.Name,
                                 Assembly = assembly,
-                                Path = moduleFolder.FullName,
-
+                                Path = moduleFolder.FullName
                             };
                             moduleInfo.Config = builder.BuildConfig(moduleFolder.FullName).Result ?? new ModuleConfig();
 
@@ -94,11 +104,14 @@ namespace SF.Core.Common
                 }
             }
 
-
             return modules;
-
         }
 
+        /// <summary>
+        /// 根据路径获取程序集
+        /// </summary>
+        /// <param name="path">路径</param>
+        /// <returns></returns>
         private IEnumerable<Assembly> GetAssembliesFromPath(string path)
         {
             List<Assembly> assemblies = new List<Assembly>();
@@ -131,9 +144,7 @@ namespace SF.Core.Common
                     assemblies.Add(assembly);
                     this._logger.LogInformation("Assembly '{0}' is discovered and loaded", assembly.FullName);
                 }
-
             }
-
 
             return assemblies;
         }
@@ -203,7 +214,5 @@ namespace SF.Core.Common
             //}
             return Assembly.Load(assemblyName);
         }
-
-
     }
 }

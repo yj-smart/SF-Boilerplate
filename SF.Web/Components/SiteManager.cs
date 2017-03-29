@@ -19,7 +19,6 @@ using SF.Entitys;
 using SF.Web.Site;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -249,8 +248,6 @@ namespace SF.Web.Components
 
             if (multiTenantOptions.Mode == MultiTenantMode.FolderName)
                 cacheHelper.ClearCache("folderList");
-
-
         }
     }
 }

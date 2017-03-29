@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SF.Entitys
 {
@@ -120,7 +117,7 @@ namespace SF.Entitys
         {
             get { return site.EnabledAuthorization; }
         }
-      
+
         public bool RequiresQuestionAndAnswer
         {
             get { return site.RequiresQuestionAndAnswer; }
@@ -406,6 +403,5 @@ namespace SF.Entitys
         {
             get { return site.CreatedUtc; }
         }
-
     }
 }

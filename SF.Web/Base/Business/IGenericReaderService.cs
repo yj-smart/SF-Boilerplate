@@ -9,7 +9,7 @@ namespace SF.Web.Base.Business
     /// 一般读取服务处理类
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IGenericReaderService<T,TKey>  where T : IEntityWithTypedId<TKey>
+    public interface IGenericReaderService<T, TKey> where T : IEntityWithTypedId<TKey>
     {
         Task<IEnumerable<T>> GetAllAsync();
         IEnumerable<T> GetAll();

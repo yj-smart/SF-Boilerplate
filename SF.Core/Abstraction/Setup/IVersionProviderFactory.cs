@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System.Collections.Generic;
 
 namespace SF.Core.Abstraction.Steup
@@ -7,6 +7,5 @@ namespace SF.Core.Abstraction.Steup
     {
         IEnumerable<IVersionProvider> VersionProviders { get; }
         IVersionProvider Get(string name);
-
     }
 }

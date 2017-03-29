@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System;
 
 namespace SF.Core.Abstraction.Steup

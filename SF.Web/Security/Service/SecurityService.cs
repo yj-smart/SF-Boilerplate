@@ -1,16 +1,15 @@
-﻿using System;
+﻿using CacheManager.Core;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using SF.Core.Extensions;
+using SF.Data;
+using SF.Entitys;
+using SF.Web.Security.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CacheManager.Core;
-using SF.Web.Security.Converters;
-using SF.Entitys;
-using SF.Core.Extensions;
-using Microsoft.AspNetCore.Identity;
-using SF.Core.Abstraction.Data;
-using SF.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
 
 namespace SF.Web.Security
 {

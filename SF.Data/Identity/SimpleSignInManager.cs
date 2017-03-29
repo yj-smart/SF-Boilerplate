@@ -1,12 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using MediatR;
 using SF.Core.Abstraction.Events;
+using System;
+using System.Threading.Tasks;
 
 namespace SF.Data.Identity
 {
@@ -27,7 +27,7 @@ namespace SF.Data.Identity
             _contextAccessor = contextAccessor;
             _mediator = mediator;
 
-          
+
         }
 
         internal new HttpContext Context
@@ -55,6 +55,4 @@ namespace SF.Data.Identity
             await base.SignInAsync(user, isPersistent, authenticationMethod);
         }
     }
-
-
 }

@@ -1,7 +1,6 @@
 ﻿
 using SF.Module.LoggingStorage.Models;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,6 +27,6 @@ namespace SF.Module.LoggingStorage.Data
         Task DeleteAll(string logLevel = "", CancellationToken cancellationToken = default(CancellationToken));
         Task Delete(Guid logItemId, CancellationToken cancellationToken = default(CancellationToken));
         Task DeleteOlderThan(DateTime cutoffDateUtc, string logLevel = "", CancellationToken cancellationToken = default(CancellationToken));
-        
+
     }
 }

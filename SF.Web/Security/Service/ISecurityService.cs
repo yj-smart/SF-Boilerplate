@@ -1,4 +1,3 @@
-using SF.Entitys;
 using System.Threading.Tasks;
 
 namespace SF.Web.Security

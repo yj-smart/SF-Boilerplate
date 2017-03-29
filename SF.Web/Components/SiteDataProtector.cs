@@ -14,12 +14,9 @@
 *********************************************************************************/
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Logging;
-using SF.Entitys;
 using SF.Core.Extensions;
+using SF.Entitys;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SF.Web.Components
 {
@@ -314,10 +311,6 @@ namespace SF.Web.Components
             {
                 log.LogWarning("DataProtection key wasRevoked or requires migration, save site settings for " + site.SiteName + " to protect with a new key");
             }
-
-
         }
-
-
     }
 }

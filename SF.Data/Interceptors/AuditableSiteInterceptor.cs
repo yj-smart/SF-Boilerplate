@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using SF.Core.Abstraction.Resolvers;
 using SF.Entitys;
 using SF.Entitys.Abstraction;
-using System;
-
-
 
 namespace SF.Core.Interceptors
 {
@@ -19,6 +15,7 @@ namespace SF.Core.Interceptors
         {
             _siteContext = siteContext;
         }
+
         /// <summary>
         /// 新增前
         /// </summary>
@@ -30,6 +27,5 @@ namespace SF.Core.Interceptors
 
             item.SiteId = _siteContext.Id;
         }
-      
     }
 }

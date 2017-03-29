@@ -13,9 +13,8 @@
 * Website：http://www.mayisite.com
 *********************************************************************************/
 using SF.Core.Abstraction.Interceptors;
-using SF.Data;
 using SF.Core.EFCore.UoW;
-using SF.Core.Interceptors;
+using SF.Data;
 using SF.Module.ActivityLog.Data.Repository;
 using System.Collections.Generic;
 

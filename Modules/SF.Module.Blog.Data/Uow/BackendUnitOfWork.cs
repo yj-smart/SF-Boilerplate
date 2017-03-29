@@ -13,12 +13,11 @@
 * Website：http://www.mayisite.com
 *********************************************************************************/
 using SF.Core.Abstraction.Interceptors;
-using SF.Data;
 using SF.Core.EFCore.UoW;
-using System.Collections.Generic;
+using SF.Data;
 using SF.Module.Blog.Data.Entitys;
-using SF.Entitys;
 using System;
+using System.Collections.Generic;
 
 namespace SF.Module.Blog.Data.Uow
 {
@@ -28,11 +27,8 @@ namespace SF.Module.Blog.Data.Uow
         public BlogUnitOfWork(BlogContext context, IEnumerable<IInterceptor> interceptors) : base(context, interceptors)
         {
             Post = new BaseRepository<PostEntity, Guid>(context);
-        
         }
 
-        public IBaseRepository<PostEntity,Guid> Post { get; }
-
-     
+        public IBaseRepository<PostEntity, Guid> Post { get; }
     }
 }

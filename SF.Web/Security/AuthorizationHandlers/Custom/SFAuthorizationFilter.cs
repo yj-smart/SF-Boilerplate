@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging.Abstractions;
 using SF.Core.Errors.Exceptions;
 using SF.Web.Security.Extensions;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 

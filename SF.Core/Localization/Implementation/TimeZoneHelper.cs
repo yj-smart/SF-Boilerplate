@@ -28,10 +28,10 @@ namespace SF.Core.Localization
         public DateTime ConvertToLocalTime(DateTime utcDateTime, string timeZoneId)
         {
             DateTime dUtc;
-            switch(utcDateTime.Kind)
+            switch (utcDateTime.Kind)
             {
                 case DateTimeKind.Utc:
-                dUtc = utcDateTime;
+                    dUtc = utcDateTime;
                     break;
                 case DateTimeKind.Local:
                     dUtc = utcDateTime.ToUniversalTime();
@@ -44,11 +44,11 @@ namespace SF.Core.Localization
             var timeZone = tzSource.GetZoneOrNull(timeZoneId);
             if (timeZone == null)
             {
-                if(log != null)
+                if (log != null)
                 {
                     log.LogWarning("failed to find timezone for " + timeZoneId);
                 }
-                
+
                 return utcDateTime;
             }
 
@@ -62,11 +62,11 @@ namespace SF.Core.Localization
                 zoned.Minute,
                 zoned.Second,
                 zoned.Millisecond,
-                DateTimeKind.Unspecified); 
+                DateTimeKind.Unspecified);
         }
 
         public DateTime ConvertToUtc(
-            DateTime localDateTime, 
+            DateTime localDateTime,
             string timeZoneId,
             ZoneLocalMappingResolver resolver = null
             )

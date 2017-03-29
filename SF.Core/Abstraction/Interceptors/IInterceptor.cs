@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SF.Core.Abstraction.Interceptors
+﻿namespace SF.Core.Abstraction.Interceptors
 {
     /// <summary>
     /// 拦截接口

@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.Extensions.Logging;
 using SF.Entitys;
-using SF.Core.Extensions;
 using System;
 using System.Threading.Tasks;
 
@@ -18,7 +17,7 @@ namespace SF.Core.Common.Message.Sms
 
         public async Task SendSmsAsync(
             ISiteContext site,
-            string phoneNumber, 
+            string phoneNumber,
             string message)
         {
             if (string.IsNullOrWhiteSpace(phoneNumber))
@@ -32,7 +31,7 @@ namespace SF.Core.Common.Message.Sms
             }
 
             var credentials = GetCredentials(site);
-            if(credentials == null)
+            if (credentials == null)
             {
                 log.LogError("tried to send sms message with no credentials");
                 return;
@@ -42,21 +41,21 @@ namespace SF.Core.Common.Message.Sms
             try
             {
                 await sender.SendMessage(
-                    credentials, 
-                    phoneNumber, 
+                    credentials,
+                    phoneNumber,
                     message).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
                 log.LogError("error sending twilio message", ex);
             }
-                
+
         }
 
         private TwilioSmsCredentials GetCredentials(ISiteContext site)
         {
-            if(site == null) { return null; }
-            if(string.IsNullOrWhiteSpace(site.SmsClientId)) { return null; }
+            if (site == null) { return null; }
+            if (string.IsNullOrWhiteSpace(site.SmsClientId)) { return null; }
             if (string.IsNullOrWhiteSpace(site.SmsSecureToken)) { return null; }
             if (string.IsNullOrWhiteSpace(site.SmsFrom)) { return null; }
 

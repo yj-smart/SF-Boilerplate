@@ -5,6 +5,9 @@ using System;
 
 namespace SF.Module.LoggingStorage.Models
 {
+    /// <summary>
+    /// 日志项
+    /// </summary>
     public class LogItem : EntityWithTypedId<Guid>
     {
         public LogItem()

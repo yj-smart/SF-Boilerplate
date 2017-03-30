@@ -1,4 +1,4 @@
-﻿ 
+﻿
 namespace SF.Entitys.Abstraction
 {
     using System;
@@ -6,7 +6,7 @@ namespace SF.Entitys.Abstraction
 #if !NET20
 
     /// <summary>
-    /// Metadata information about the entity creation
+    /// 有关实体创建的元数据信息接口
     /// </summary>
     /// <typeparam name="TCreatedBy">The identifier or entity type</typeparam>
     public interface IHaveCreatedMeta<TCreatedBy>
@@ -23,8 +23,7 @@ namespace SF.Entitys.Abstraction
     }
 
     /// <summary>
-    /// Metadata information about the entity creation, using a <see cref="string"/>
-    /// as an identifier for the <see cref="IHaveCreatedMeta{T}.CreatedBy"/>
+    /// 有关实体创建的元数据信息接口
     /// </summary>
     public interface IHaveCreatedMeta : IHaveCreatedMeta<string>
     {

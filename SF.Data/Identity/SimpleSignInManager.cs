@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace SF.Data.Identity
 {
+    /// <summary>
+    /// 简单登陆管理
+    /// </summary>
+    /// <typeparam name="TUser"></typeparam>
     public class SimpleSignInManager<TUser> : SignInManager<TUser> where TUser : class
     {
         private readonly IMediator _mediator;
@@ -26,8 +30,6 @@ namespace SF.Data.Identity
         {
             _contextAccessor = contextAccessor;
             _mediator = mediator;
-
-
         }
 
         internal new HttpContext Context

@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SF.Entitys.Abstraction
 {
+    /// <summary>
+    /// 有效的对象
+    /// </summary>
     public abstract class ValidatableObject
     {
         public virtual bool IsValid()

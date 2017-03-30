@@ -1,5 +1,8 @@
 ﻿namespace SF.Entitys
 {
+    /// <summary>
+    /// 多租户选项
+    /// </summary>
     public class MultiTenantOptions
     {
         /// <summary>

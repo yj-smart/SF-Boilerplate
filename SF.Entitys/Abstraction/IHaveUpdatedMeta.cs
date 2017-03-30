@@ -1,4 +1,4 @@
-﻿ 
+﻿
 namespace SF.Entitys.Abstraction
 {
     using System;
@@ -6,7 +6,7 @@ namespace SF.Entitys.Abstraction
 #if !NET20
 
     /// <summary>
-    /// Metadata information about the entity last update
+    /// 有关实体更新的元数据信息
     /// </summary>
     /// <typeparam name="TUpdatedBy">The identifier or entity type</typeparam>
     public interface IHaveUpdatedMeta<TUpdatedBy>
@@ -23,8 +23,7 @@ namespace SF.Entitys.Abstraction
     }
 
     /// <summary>
-    /// Metadata information about the entity last update, using a <see cref="string"/>
-    /// as an identifier for the <see cref="IHaveUpdatedMeta{T}.UpdatedBy"/>
+    /// 有关实体更新的元数据信息接口
     /// </summary>
     public interface IHaveUpdatedMeta : IHaveUpdatedMeta<string>
     {

@@ -1,4 +1,4 @@
-﻿ 
+﻿
 namespace SF.Entitys.Abstraction
 {
     using System;
@@ -6,7 +6,7 @@ namespace SF.Entitys.Abstraction
 #if !NET20
 
     /// <summary>
-    /// Metadata information about the entity soft deleted
+    /// 有关实体删除的元数据信息
     /// </summary>
     /// <typeparam name="TDeletedBy">The identifier or entity type</typeparam>
     public interface IHaveDeletedMeta<TDeletedBy>
@@ -23,8 +23,7 @@ namespace SF.Entitys.Abstraction
     }
 
     /// <summary>
-    /// Metadata information about the entity deletition, using a <see cref="string"/>
-    /// as an identifier for the <see cref="IHaveDeletedMeta{T}.DeletedBy"/>
+    /// 有关实体删除的元数据信息接口
     /// </summary>
     public interface IHaveDeletedMeta : IHaveDeletedMeta<string>
     {

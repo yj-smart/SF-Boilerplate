@@ -101,7 +101,7 @@ namespace SF.Entitys.Abstraction
         /// </summary>
         protected EntityWithAllMeta()
         {
-            
+
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace SF.Entitys.Abstraction
         /// <param name="id">The entity id</param>
         protected EntityWithAllMeta(TIdentity id) : base(id)
         {
-            
+
         }
     }
 

@@ -5,6 +5,9 @@ using System.Security.Claims;
 
 namespace SF.Data.Identity
 {
+    /// <summary>
+    /// 为用户创建持久性存储的新实例
+    /// </summary>
     public class SimpleUserStore : UserStore<UserEntity, RoleEntity, CoreDbContext, long, IdentityUserClaim<long>, UserRoleEntity,
         IdentityUserLogin<long>, IdentityUserToken<long>>
     {

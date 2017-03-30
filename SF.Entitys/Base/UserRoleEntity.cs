@@ -2,6 +2,9 @@
 
 namespace SF.Entitys
 {
+    /// <summary>
+    /// 用户角色实体
+    /// </summary>
     public class UserRoleEntity : IdentityUserRole<long>
     {
         public override long UserId { get; set; }

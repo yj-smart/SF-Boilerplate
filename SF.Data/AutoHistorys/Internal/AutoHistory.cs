@@ -1,13 +1,14 @@
-﻿ 
-using System;
+﻿
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace SF.Core.AutoHistorys.Internal
 {
     /// <summary>
     /// Represents the entity change history.
     /// </summary>
-    internal class AutoHistory {
+    internal class AutoHistory
+    {
         /// <summary>
         /// Gets or sets the primary key.
         /// </summary>

@@ -15,11 +15,15 @@ using System.Threading.Tasks;
 
 namespace SF.Data
 {
+    /// <summary>
+    /// CoreDbContext实例表示与数据库的会话，可以用于查询并保存实体的实例。DbContext是一个组合工作单位和仓库模式
+    /// </summary>
     public class CoreDbContext : IdentityDbContext<UserEntity, RoleEntity, long, IdentityUserClaim<long>, UserRoleEntity, IdentityUserLogin<long>, IdentityRoleClaim<long>, IdentityUserToken<long>>, IStorageContext
     {
         public CoreDbContext(DbContextOptions<CoreDbContext> options) : base(options)
         {
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             List<Type> typeToRegisterCustomModelBuilders = new List<Type>();

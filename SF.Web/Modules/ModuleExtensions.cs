@@ -36,6 +36,7 @@ namespace SF.Web.Modules
             {
 
             });
+
             services.AddSingleton<IModulesUnitOfWork, ModulesUnitOfWork>();
             services.AddSingleton<IModuleManager, ModuleManager>();
             services.AddScoped<IModuleConfigBuilder, JsonModuleBuilder>();

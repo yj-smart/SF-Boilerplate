@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace SF.Module.LoggingStorage.Data
 {
+    /// <summary>
+    /// 日志仓储
+    /// </summary>
     public class LogRepository : ILogRepository, IDisposable
     {
         private readonly DbContext dbContext;
@@ -18,8 +21,11 @@ namespace SF.Module.LoggingStorage.Data
         {
             this.dbContext = dbContext;
         }
-     
 
+        /// <summary>
+        /// 添加日志
+        /// </summary>
+        /// <param name="logItem"></param>
         public void AddLogItem(LogItem log)
         {
             // since we are using EF to add to the log we need ot avoid
@@ -47,6 +53,12 @@ namespace SF.Module.LoggingStorage.Data
             //return logItem.Id;
         }
 
+        /// <summary>
+        /// 获取行数
+        /// </summary>
+        /// <param name="logLevel">日志级别</param>
+        /// <param name="cancellationToken">传播有关应取消操作的通知</param>
+        /// <returns></returns>
         public async Task<int> GetCount(string logLevel = "", CancellationToken cancellationToken = default(CancellationToken))
         {
             return await dbContext.Set<LogItem>()
@@ -54,7 +66,14 @@ namespace SF.Module.LoggingStorage.Data
                 .CountAsync<LogItem>(cancellationToken);
         }
 
-
+        /// <summary>
+        /// 按升序获取指定页
+        /// </summary>
+        /// <param name="pageNumber">页码</param>
+        /// <param name="pageSize">页大小</param>
+        /// <param name="logLevel">日志级别</param>
+        /// <param name="cancellationToken">传播有关应取消操作的通知</param>
+        /// <returns></returns>
         public async Task<PagedQueryResult> GetPageAscending(
             int pageNumber,
             int pageSize,
@@ -77,6 +96,14 @@ namespace SF.Module.LoggingStorage.Data
             return result;
         }
 
+        /// <summary>
+        /// 按降序获取指定页
+        /// </summary>
+        /// <param name="pageNumber">页码</param>
+        /// <param name="pageSize">页大小</param>
+        /// <param name="logLevel">日志级别</param>
+        /// <param name="cancellationToken">传播有关应取消操作的通知</param>
+        /// <returns></returns>
         public async Task<PagedQueryResult> GetPageDescending(
             int pageNumber,
             int pageSize,
@@ -100,6 +127,12 @@ namespace SF.Module.LoggingStorage.Data
 
         }
 
+        /// <summary>
+        /// 按级别删除日志
+        /// </summary>
+        /// <param name="logLevel">日志级别</param>
+        /// <param name="cancellationToken">传播有关应取消操作的通知</param>
+        /// <returns></returns>
         public async Task DeleteAll(
             string logLevel = "",
             CancellationToken cancellationToken = default(CancellationToken))
@@ -118,12 +151,15 @@ namespace SF.Module.LoggingStorage.Data
                 dbContext.Set<LogItem>().RemoveRange(query);
             }
 
-
             int rowsAffected = await dbContext.SaveChangesAsync(cancellationToken);
-
-
         }
 
+        /// <summary>
+        /// 删除指定日志
+        /// </summary>
+        /// <param name="logItemId">日志项Id</param>
+        /// <param name="cancellationToken">传播有关应取消操作的通知</param>
+        /// <returns></returns>
         public async Task Delete(
             Guid logItemId,
             CancellationToken cancellationToken = default(CancellationToken))
@@ -134,12 +170,16 @@ namespace SF.Module.LoggingStorage.Data
             {
                 dbContext.Set<LogItem>().Remove(itemToRemove);
                 int rowsAffected = await dbContext.SaveChangesAsync(cancellationToken);
-
             }
-
-
         }
 
+        /// <summary>
+        /// 按日期和级别删除日志
+        /// </summary>
+        /// <param name="cutoffDateUtc">日志日期</param>
+        /// <param name="logLevel">日志级别</param>
+        /// <param name="cancellationToken">传播有关应取消操作的通知</param>
+        /// <returns></returns>
         public async Task DeleteOlderThan(
             DateTime cutoffDateUtc,
             string logLevel = "",
@@ -164,7 +204,6 @@ namespace SF.Module.LoggingStorage.Data
             }
 
             int rowsAffected = await dbContext.SaveChangesAsync(cancellationToken);
-
         }
 
         #region IDisposable Support
@@ -210,6 +249,5 @@ namespace SF.Module.LoggingStorage.Data
         }
 
         #endregion
-
     }
 }

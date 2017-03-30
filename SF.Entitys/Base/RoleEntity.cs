@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace SF.Entitys
 {
+    /// <summary>
+    /// 角色实体
+    /// </summary>
     public class RoleEntity : IdentityRole<long, UserRoleEntity, IdentityRoleClaim<long>>, IEntityWithTypedId<long>
     {
         public RoleEntity()
@@ -17,10 +20,14 @@ namespace SF.Entitys
         {
             Name = name;
         }
+
         public long SiteId { get; set; }
+
         public string Description { get; set; }
 
+
         public int Enabled { get; set; }
+
 
         public virtual IList<RolePermissionEntity> RolePermissions { get; set; }
 

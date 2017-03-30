@@ -196,15 +196,18 @@ namespace SF.WebHost
               .AddRoleStore<SimpleRoleStore>()
               .AddUserStore<SimpleUserStore>()
              .AddDefaultTokenProviders();
+            //获取IEFCoreQueryableRepository实例时，每次都要实例化一次EFCoreBaseRepository
             services.AddTransient(typeof(IEFCoreQueryableRepository<>), typeof(EFCoreBaseRepository<>));
             services.AddTransient(typeof(IEFCoreQueryableRepository<,>), typeof(EFCoreBaseRepository<,>));
 
+            //注册作用域的类型，在特定作用域内ICoreTableNames的实例是CoreTableNames
             services.TryAddScoped<ICoreTableNames, CoreTableNames>();
             services.AddSingleton<IInterceptor, AuditableCreateInterceptor>();
             services.AddSingleton<IInterceptor, AuditableDeleteInterceptor>();
             services.AddSingleton<IInterceptor, AuditableUpdateInterceptor>();
             services.AddSingleton<IInterceptor, AuditableSiteInterceptor>();
 
+            //注册单例模式，整个应用程序周期内IBaseUnitOfWork接口的实例都是BaseUnitOfWork的一个单例实例
             services.AddSingleton<IBaseUnitOfWork, BaseUnitOfWork>();
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddTransient(typeof(IBaseRepository<,>), typeof(BaseRepository<,>));
@@ -212,7 +215,8 @@ namespace SF.WebHost
             services.AddSingleton<IUnitOfWorkFactory>(uow => new UnitOfWorkFactory(services.BuildServiceProvider()));
             #endregion
 
-
+            //AddInstance 注册特定实例模型，整个应用程序周期内IActionContextAccessor接口的实例都是固定初始化好的一个单例实例
+            //如果要注入的类没有接口，直接注入自身类型
             services.AddScoped<HandlerExceptionFilter>();
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();

@@ -25,7 +25,7 @@ namespace SF.Web.Control.Editor
             {
                 return new Dictionary<int, Action<IApplicationBuilder>>()
                 {
-                    [10000] = this.UseEditorBuilder,
+                    [10000] = this.UseEditorBuilder
                 };
             }
         }

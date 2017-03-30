@@ -4,6 +4,9 @@ using System.Security.Claims;
 
 namespace SF.Data.Identity
 {
+    /// <summary>
+    /// 为角色创建持久性存储的新实例
+    /// </summary>
     public class SimpleRoleStore : RoleStore<RoleEntity, CoreDbContext, long, UserRoleEntity, IdentityRoleClaim<long>>
     {
         public SimpleRoleStore(CoreDbContext context) : base(context)

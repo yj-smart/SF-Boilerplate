@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Routing;
+﻿using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using SF.Core.Abstraction.Data;
-using SF.Entitys;
 using SF.Data;
+using System.Threading.Tasks;
 
 namespace SF.Web.Components
 {

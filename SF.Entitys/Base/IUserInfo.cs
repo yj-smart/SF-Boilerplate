@@ -13,35 +13,41 @@
 * Website：http://www.mayisite.com
 *********************************************************************************/
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SF.Entitys
 {
-   public interface IUserInfo
+    /// <summary>
+    /// 用户实体接口
+    /// </summary>
+    public interface IUserInfo
     {
         long Id { get; }
+
         /// <summary>
         /// 所属网站
         /// </summary>
         long SiteId { get; set; }
+
         /// <summary>
         /// 用户名
         /// </summary>
         string UserName { get; set; }
+
         /// <summary>
         /// 显示名称
         /// </summary>
         string DisplayName { get; set; }
+
         /// <summary>
         /// 邮箱
         /// </summary>
         string Email { get; set; }
+
         /// <summary>
         /// 网址
         /// </summary>
         string WebSiteUrl { get; set; }
+
         /// <summary>
         /// 删除
         /// </summary>
@@ -51,6 +57,7 @@ namespace SF.Entitys
         /// 账户已被管理员锁定
         /// </summary>
         bool IsLockedOut { get; set; }
+
         /// <summary>
         /// 时区ID
         /// </summary>
@@ -60,6 +67,7 @@ namespace SF.Entitys
         /// 电话
         /// </summary>		
         string PhoneNumber { get; set; }
+
         /// <summary>
         /// 电话是否确认
         /// </summary>
@@ -68,18 +76,22 @@ namespace SF.Entitys
         /// 账户审核
         /// </summary>
         bool AccountApproved { get; set; }
+
         /// <summary>
         /// 用户头像
         /// </summary>
         string AvatarUrl { get; set; }
+
         /// <summary>
         /// 性别
         /// </summary>		
         string Gender { get; set; }
+
         /// <summary>
         /// 生日
         /// </summary>		
         DateTime? Birthday { get; set; }
+
         /// <summary>
         /// 手机
         /// </summary>		
@@ -89,74 +101,92 @@ namespace SF.Entitys
         /// QQ号
         /// </summary>		
         string OICQ { get; set; }
+
         /// <summary>
         /// 微信号
         /// </summary>		
         string WeChat { get; set; }
+
         /// <summary>
         /// MSN
         /// </summary>		
         string MSN { get; set; }
+
         /// <summary>
         /// 主管主键
         /// </summary>		
         long? ManagerId { get; set; }
+
         /// <summary>
         /// 机构主键
         /// </summary>		
         long? OrganizeId { get; set; }
+
         /// <summary>
         /// 部门主键
         /// </summary>		
         long? DepartmentId { get; set; }
+
         /// <summary>
         /// 岗位主键
         /// </summary>		
         long? DutyId { get; set; }
+
         /// <summary>
         /// 职位主键
         /// </summary>		
         long? PostId { get; set; }
+
         /// <summary>
         /// 工作组主键
         /// </summary>		
         long? WorkGroupId { get; set; }
+
         /// <summary>
         /// 安全级别
         /// </summary>		
         int? SecurityLevel { get; set; }
+
         /// <summary>
         /// 在线状态
         /// </summary>		
         int? UserOnLine { get; set; }
+
         /// <summary>
         /// 密码提示问题
         /// </summary>		
         string Question { get; set; }
+
         /// <summary>
         /// 密码提示答案
         /// </summary>		
         string AnswerQuestion { get; set; }
+
         /// <summary>
         /// 允许多用户同时登录
         /// </summary>		
         int? CheckOnLine { get; set; }
+
         /// <summary>
         /// 允许登录时间开始
         /// </summary>		
         DateTime? AllowStartTime { get; set; }
+
         /// <summary>
         /// 允许登录时间结束
         /// </summary>		
         DateTime? AllowEndTime { get; set; }
+
         /// <summary>
         /// 暂停用户开始日期
         /// </summary>		
         DateTime? LockStartDate { get; set; }
+
         /// <summary>
         /// 暂停用户结束日期
         /// </summary>		
         DateTime? LockEndDate { get; set; }
+
         /// <summary>
         /// 第一次访问时间
         /// </summary>		
@@ -165,14 +195,17 @@ namespace SF.Entitys
         /// 上一次访问时间
         /// </summary>		
         DateTime? PreviousVisit { get; set; }
+
         /// <summary>
         /// 最后访问时间
         /// </summary>		
         DateTime? LastVisit { get; set; }
+
         /// <summary>
         /// 登录次数
         /// </summary>		
         int? LogOnCount { get; set; }
+
         /// <summary>
         /// 备注
         /// </summary>		
@@ -184,8 +217,11 @@ namespace SF.Entitys
     {
 
         int AccessFailedCount { get; set; } // maps to FailedPasswordAttemptCount in ado data layers
+
         string PasswordHash { get; set; }
+
         bool MustChangePwd { get; set; }
+
         DateTime? LastPasswordChangeUtc { get; set; }
 
         /// <summary>
@@ -222,7 +258,9 @@ namespace SF.Entitys
         string SecurityStamp { get; set; }
 
         bool EmailConfirmed { get; set; }
+
         string NormalizedEmail { get; set; } // maps to LoweredEmail in ado data layers
+
         string NormalizedUserName { get; set; }
 
         string NewEmail { get; set; }
@@ -241,11 +279,10 @@ namespace SF.Entitys
         bool NewEmailApproved { get; set; }
 
         string Signature { get; set; }
+
         string AuthorBio { get; set; }
+
         string Comment { get; set; }
         // string ConcurrencyStamp { get; set; }
-
-
-
     }
 }

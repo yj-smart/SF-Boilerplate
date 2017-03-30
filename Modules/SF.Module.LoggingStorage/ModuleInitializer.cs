@@ -40,8 +40,13 @@ namespace SF.Module.LoggingStorage
             }
         }
 
+        /// <summary>
+        /// 添加EF日志服务
+        /// </summary>
+        /// <param name="serviceCollection"></param>
         private void AddEFLoggingService(IServiceCollection serviceCollection)
         {
+            //添加范围
             serviceCollection.TryAddScoped<ILogRepository, LogRepository>();
             serviceCollection.TryAddScoped<LogManager>();
 

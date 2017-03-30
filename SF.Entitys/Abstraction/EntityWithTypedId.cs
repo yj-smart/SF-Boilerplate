@@ -1,5 +1,9 @@
 ﻿namespace SF.Entitys.Abstraction
 {
+    /// <summary>
+    /// 实体Id类型
+    /// </summary>
+    /// <typeparam name="TId"></typeparam>
     public abstract class EntityWithTypedId<TId> : ValidatableObject, IEntityWithTypedId<TId>
     {
         public TId Id { get;  set; }

@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace SF.Web
 {
+    /// <summary>
+    /// 视图的搜索路径的实例
+    /// </summary>
     public class ModuleViewLocationExpander : IViewLocationExpander
     {
         private const string _moduleKey = "module";
@@ -27,6 +30,10 @@ namespace SF.Web
             return viewLocations;
         }
 
+        /// <summary>
+        /// 填充值
+        /// </summary>
+        /// <param name="context"></param>
         public void PopulateValues(ViewLocationExpanderContext context)
         {
             var controller = context.ActionContext.ActionDescriptor.DisplayName;

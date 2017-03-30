@@ -32,7 +32,7 @@ namespace SF.Module.Blog
             {
                 return new Dictionary<int, Action<IApplicationBuilder>>()
                 {
-                    [10000] = this.UseMvc,
+                    [10000] = this.UseMvc
                 };
             }
         }

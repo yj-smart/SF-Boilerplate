@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace SF.Core.Common.Razor
 {
+    /// <summary>
+    /// 视图渲染服务接口
+    /// </summary>
     public interface IViewRenderService
     {
         Task<string> RenderViewAsString<TModel>(string viewName, TModel model);

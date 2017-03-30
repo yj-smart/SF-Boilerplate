@@ -1,7 +1,7 @@
 ﻿namespace SF.Entitys.Abstraction
 {
     /// <summary>
-    /// Implement this interface for an entity which must have SiteId.
+    /// 为必须具有SiteId的实体实现此接口
     /// </summary>
     public interface IMustHaveSite
     {
